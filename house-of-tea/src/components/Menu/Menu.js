@@ -935,6 +935,7 @@ const Menu = () => {
       res.data.map(e => {
         e.products.map((product,idx)=>{
           e.products[idx].image=baseUrl+e.products[idx].image
+          
         })
         productData[e.name] = [...e.products]
       })
@@ -1094,7 +1095,7 @@ const Menu = () => {
                 {t(`Products.${product.description}`)}
               </p> */}
 
-              {product.sizes ? (
+              {!product.price ? (
                 <div className="size-options">
                   {product.sizes.map((sizeOption) => (
                     <button
