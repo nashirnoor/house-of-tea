@@ -1,0 +1,101 @@
+.section-heading-certificates {
+  margin-top: 5rem;
+  padding-top: 8rem;
+}
+.certificates-section {
+  margin: 1rem 15vw;
+
+  align-items: center;
+}
+.certificates-section img {
+  width: 100%;
+}
+.slide {
+  width: 100%;
+}
+.certi-img {
+  padding: 5rem 5rem;
+}
+.heading-text-certi {
+  color: #28245f;
+  text-align: center;
+  font-family: Montserrat;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 33px;
+  text-transform: capitalize;
+}
+.heading-desc-certi {
+  color: #d84d4d;
+  text-align: center;
+  font-family: Montserrat;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 33px;
+  text-transform: capitalize;
+}
+.certificates-section .carousel-indicators [data-bs-target] {
+  width: 30px !important;
+  height: 10px !important;
+  border: 1px solid transparent !important;
+
+  bottom: -80px !important;
+  border-radius: 5.5px !important;
+  background: #d9d9d9 !important;
+}
+.certificates-section .carousel-indicators .active {
+  width: 55px !important;
+  height: 10px !important;
+  border-radius: 5.5px !important;
+  background: linear-gradient(
+    90deg,
+    #f51e51 -6.74%,
+    rgba(65, 62, 249, 0) 197.75%
+  ) !important;
+}
+
+.certificates-section .carousel-control-prev-icon {
+  background-image: url("../../assets/icon-indicators/next.svg") !important;
+
+  transform: scaleX(-1);
+}
+
+.certificates-section .carousel-control-next-icon {
+  background-image: url("../../assets/icon-indicators/next.svg") !important;
+}
+
+/* .iso-certifications{
+    background-color: black;
+} */
+/* .iso-sectification .footer{
+    margin-top: 0 !important;
+}
+.iso-sectification.home-section3{
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+} */
+
+@media screen and (max-width: 767px) {
+  .certificates-section {
+    margin: 5rem 1rem;
+  }
+  .heading-text-certi {
+    font-size: 30px;
+  }
+  .heading-desc-certi {
+    font-size: 16px;
+  }
+  .certi-img {
+    padding: 5rem 0rem;
+  }
+}
+@media screen and (max-width: 992px) {
+  .certificates-section {
+    margin: 5rem 1rem;
+  }
+  .certi-img {
+    padding: 5rem 0rem;
+  }
+}

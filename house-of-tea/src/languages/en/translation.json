@@ -1,0 +1,155 @@
+{
+  "home": {
+    "about_the_company": "About HOUSE OF TEA",
+    "company_description": "As we fulfilled the 20 years of the past, we established a pure and tasty blend Fusion food, Hot and cold beverages. We maintain a strong relationship through our satisfied customers for our customized product as owned by house of tea. We served the fastest and customized range of food in hygienic environment To provide quality services that exceeds the expectations of our esteemed customers and become a One Stop Shop for all food requirements.......",
+    "more_info": "MORE INFO",
+    "order_now": "ORDER NOW",
+    "discover_tea_blends": "Discover perfect tea blends with unmatched service today"
+  },
+  "footer": {
+    "home": "Home",
+    "about_us": "About Us",
+    "contact_us": "Contact Us",
+    "certifications": "Certifications",
+    "address": "Address",
+    "address_detail": "Gulf Shore Group Building No. 15, Street 3080, Zone 91, Birkat Al Awamer, Doha, Qatar",
+    "phone": "Phone",
+    "email": "Email"
+  },
+  "navbar": {
+    "home": "Home",
+    "about_us": "About Us",
+    "menu": "Menu",
+    "contact_us": "Contact Us",
+    "cart": "Cart"
+  },
+  "about":{
+    "first_heading":"Welcome to",
+    "second_heading":"House Of Tea",
+    "about_the_company": "About HOUSE OF TEA",
+    "company_description": "As we fulfilled the 20 years of the past, we established a pure and tasty blend Fusion food, Hot and cold beverages. We maintain a strong relationship through our satisfied customers for our customized product as owned by house of tea. We served the fastest and customized range of food in hygienic environment To provide quality services that exceeds the expectations of our esteemed customers and become a One Stop Shop for all food requirements. To build long term relationship with our customers and provide exceptional customer services by pursuing business through commitment, dedication, innovation and advanced technology, We believe in treating our customers with respect and faith. We grow through creativity, invention and innovation. We integrate honesty, integrity and business ethics into all aspects of our business functioning. Expansion regionally and internationally in the field of high quality food products and services and develop a strong base of key customers. To build good reputation in the field of food service management and become a key player in the industry. Hopes for vertical growth in industry for the next year."
+  },
+  "contactUs": {
+    "heading": "Contact Us",
+    "subheading": "Contact our Friendly Team",
+    "description": "What are we doing, and why are we doing it.",
+    "callUs": "Call us",
+    "callDetails": "Call Us Number ",
+    "callNumbers": "+974 7447 7650 +974 5512 9692 +974 7443 3090",
+    "email": "Email",
+    "emailDetails": "Send emails at",
+    "emailAddress": "info@gulfshore-group.com",
+    "Whatsapp": "WhatsApp",
+    "chat_with_us": "Chat With Us"
+  },
+
+  "Menu": {
+    "menu": "Menu",
+    "open_menu": "Open Menu",
+    "close_menu": "Close Menu",
+    "product_added": "Product added to cart",
+    "price": "Price: {{price}} QAR",
+    "add_to_cart": "Add to Cart",
+    "ENGLISH_BREAKFAST": "ENGLISH BREAKFAST",
+    "ICED_LATTE": "ICED LATTE",
+    "CRUSHED_MILKSHAKE": "CRUSHED MILKSHAKE",
+    "FRESH_BURGER": "FRESH BURGER",
+    "CIABATTA_SANDWICHES": "CIABATTA SANDWICHES",
+    "WHEAT_SANDWICH": "WHEAT SANDWICH",
+    "BAKED_POTATO": "BAKED POTATO",
+    "CHINESE_TASTE": "CHINESE TASTE",
+    "BURGER_SPECIAL": "BURGER SPECIAL",
+    "PHILIPPINES_DISHES": "PHILIPPINES DISHES",
+    "CROISSANT_SANDWICH": "CROISSANT SANDWICH",
+    "COMBO_SANDWICH": "COMBO SANDWICH",
+    "CLUB_SANDWICH": "CLUB SANDWICH",
+    "MAJLIS": "MAJLIS",
+    "WRAP": "WRAP",
+    "PARATHA_SANDWICH": "PARATHA SANDWICH",
+    "TORTILLA_SANDWICH": "TORTILLA SANDWICH",
+    "SLICE_SANDWICHES": "SLICE SANDWICHES",
+    "SPECIAL_FRIES": "SPECIAL FRIES",
+    "CREPES": "CREPES",
+    "SALAD": "SALAD",
+    "DESSERT_SPECIAL": "DESSERT SPECIAL",
+    "JUICES": "JUICES",
+    "ICE_CREAM_DESSERT": "ICE CREAM DESSERT",
+    "MOJITO": "MOJITO",
+    "SUMMER_COOL": "SUMMER COOL",
+    "REFRESHERS": "REFRESHERS",
+    "SPECIAL_JUICE": "SPECIAL JUICE",
+    "HEALTHY_JUICE": "HEALTHY JUICE",
+    "HOT_DRINKS": "HOT DRINKS",
+    "SIGNATURE_JUICE": "SIGNATURE JUICE"
+   
+  },
+  "Products": {
+    "CHILL_COFFEE": "CHILL COFFEE",
+    "ICED_CREAMY_LATTE": "ICED CREAMY LATTE",
+    "SAFFRON_LATTE": "SAFFRON LATTE",
+    "SPANISH_LATTE": "SPANISH LATTE",
+    "KITKAT_CRUSH_MILK": "KITKAT CRUSH MILK",
+    "LOTUS_SHAKE": "LOTUS SHAKE",
+    "OREO_CRUSH_SHAKE": "OREO CRUSH SHAKE",
+    "STRAWBERRY_SHAKE": "STRAWBERRY SHAKE",
+    "CHEETOS_BURGER": "CHEETOS BURGER",
+    "FAT_BOY_BURGER": "FAT BOY BURGER",
+    "GRILLED_TENDER": "GRILLED TENDER",
+    "Mushroom_Burger": "Mushroom Burger",
+    "Ruman_Burger": "Ruman Burger",
+    "SPICY_CRUNCHY": "SPICY CRUNCHY",
+    "CHICKEN_HALLOUMI_COMBO": "CHICKEN HALLOUMI COMBO",
+    "CHILLI_HOT_SANDWICH": "CHILLI HOT SANDWICH",
+    "TUNA_SANDWICH": "TUNA_SANDWICH",
+    "CHICKEN_BITES_Pepsi": "CHICKEN BITES + Pepsi",
+    "DOUBLE_BURGER": "DOUBLE BURGER",
+    "DOUBLE_KHALEEJ": "DOUBLE KHALEEJ",
+    "HOUSE_OF_TEA_BURGER": "HOUSE OF TEA BURGER",
+    "MEGA_ZINKER": "MEGA ZINKER",
+    "MEXICAN_BURGER": "MEXICAN BURGER",
+    "FALAFEL_CLUB": "FALAFEL CLUB",
+    "FRESH_BEEF_CLUB": "FRESH BEEF CLUB",
+    "PISTASO_BAHRAIN": "PISTASO BAHRAIN",
+    "Ruman_Club": "Ruman Club",
+    "ZINKER_CLUB": " ZINKER CLUB",
+    "ANIMAL_FRIES": "ANIMAL FRIES",
+    "RUMAN_FRIES": "RUMAN FRIES",
+    "SIGNATURE_FRIES": "SIGNATURE FRIES",
+    "CREPES_HALWIYATH": "CREPES HALWIYATH",
+    "CREPES_LOTUS": "CREPES LOTUS",
+    "CREPES_OREO": " CREPES OREO",
+    "CREPES_STRAWBERRY": "كريب فراولة"
+  },
+  "VisionSection": {
+    "heading": "Vision & Mission",
+    "desc": "What are we doing, and why are we doing it.",
+    "vision": {
+      "heading": "Our Vision",
+      "detail": " we aspire to redefine the dining experience by blending tradition with innovation. With over 20 years of expertise, our vision is to be the premier destination for high-quality, customized food and beverages, served in a hygienic and inviting environment.We are committed to exceeding our customers' expectations through exceptional service, creative solutions, and advanced technology. Our goal is to build lasting relationships with our clients by integrating honesty, integrity, and dedication into every aspect of our business.As we expand regionally and internationally, we aim to solidify our reputation as a leader in food service management. We strive for continuous growth and improvement, driven by creativity and innovation, to become a key player in the industry and a trusted partner for all food-related needs. "
+    },
+    "mission": {
+      "heading": "Our Mission",
+      "detail": "Our mission is to deliver exceptional food and beverage experiences by providing a diverse range of high-quality, customized options. We are dedicated to maintaining the highest standards of hygiene and service, ensuring that every customer enjoys a memorable and satisfying experience. We strive to build strong, long-term relationships with our customers by upholding our commitment to excellence, innovation, and integrity. Our focus is on continually enhancing our offerings through creativity and advanced technology, with the aim of becoming the go-to destination for all food-related needs. By fostering a culture of respect, dedication, and continuous improvement, we aim to achieve regional and international expansion and establish ourselves as a leading name in the food service industry."
+    }
+  },
+  "Review": {
+    "Review": "Review",
+    "name": "Name",
+    "email": "Email",
+    "rating": "Rating",
+    "review": "Review",
+    "submit": "Submit",
+    "fillOutAllFields": "Please fill out all fields."
+  },
+  "cart":{
+     "empty_cart":"YOUR CART IS EMPTY",
+     "Continue_Shopping":"Continue Shopping",
+     "Your_Cart":"Your Cart",
+     "total_quantity":"Total Quantity: ",
+     "total_price":"Total Price: ",
+     "order_now":"ORDER NOW",
+     "add_address":"Add Address",
+     "select_store":"Select a Store"
+
+  }
+}

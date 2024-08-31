@@ -1,0 +1,384 @@
+
+
+.cart-container {
+  padding: 1rem;
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.empty-cart-text {
+  font-size: 1.5rem;
+  text-align: center;
+  color: #666;
+  margin-top: 2rem;
+}
+
+.empty-cart-text a {
+  color: #007bff;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+
+.empty-cart-text a:hover {
+  text-decoration: underline;
+}
+
+.cart-items {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 800px;
+}
+
+.cart-item {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cart-item-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.cart-item-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-item-details h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.quantity-control {
+  display: flex;
+  align-items: center;
+  margin: 0.5rem 0;
+}
+
+.quantity-button {
+  border: 1px solid #ddd;
+  background: #fff;
+  padding: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-radius: 4px;
+}
+
+.quantity-button:hover {
+  background: #f0f0f0;
+}
+
+.quantity {
+  margin: 0 0.5rem;
+  font-size: 1rem;
+}
+
+.remove-button {
+  background-color: #16a085;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  margin: 1rem 0;
+}
+
+.remove-button:hover {
+  background-color: #1abc9c;
+  transform: scale(1.05);  }
+
+.order-now-button {
+  background-color: #16a085;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  margin: 1rem 0;
+}
+
+.order-now-button:hover {
+  background-color: #1abc9c;
+  transform: scale(1.05);
+}
+.add-address-button {
+  background-color: #16a085;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  margin: 1rem 0;
+}
+
+.add-address-button:hover {
+  background-color: #1abc9c;
+  transform: scale(1.05);
+}
+.save-address-button {
+  background-color: #16a085;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  margin: 1rem 0;
+}
+
+.save-address-button:hover {
+  background-color: #1abc9c;
+  transform: scale(1.05);
+}
+
+
+.cart-item-details .item-price {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.cart-summary {
+  width: 100%;
+  max-width: 800px;
+  padding: 1rem;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 2rem;
+}
+
+.cart-summary h3 {
+  margin: 0.5rem 0;
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+
+.store-selector {
+  margin: 20px 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.store-selector label {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.store-selector select {
+  padding: 8px 12px;
+  font-size: 16px;
+  border: 1px solid #1abc9c;
+  border-radius: 4px;
+  background-color: #fff;
+  outline: none;
+  cursor: pointer;
+  width: 100%;
+  max-width: 360px; 
+}
+
+.store-selector option {
+  padding: 8px;
+}
+
+.store-selector select:hover,
+.store-selector select:focus {
+  border-color: #1abc9c;
+  box-shadow: 0 0 0 3px rgba(38, 143, 255, 0.25);
+}
+
+@media (max-width: 768px) {
+  .cart-item {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .quantity-control {
+    align-items: center;
+  }
+
+  .quantity-button {
+    width: 100%;
+  }
+
+  .cart-summary {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cart-item-image {
+    width: 80px;
+    height: 80px;
+  }
+
+  .cart-summary h3 {
+    font-size: 1rem;
+  }
+
+  .order-now-button {
+    width: 100%;
+  }
+}
+
+.store-selector {
+  margin: 20px 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.store-selector label {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.store-selector select {
+  padding: 8px 12px;
+  font-size: 16px;
+  border: 1px solid #1abc9c;
+  border-radius: 4px;
+  background-color: #fff;
+  outline: none;
+  cursor: pointer;
+  width: 100%;
+  max-width: 360px; 
+}
+
+.store-selector option {
+  padding: 8px;
+}
+
+.store-selector select:hover,
+.store-selector select:focus {
+  border-color: #1abc9c;
+  box-shadow: 0 0 0 3px rgba(38, 143, 255, 0.25);
+}
+
+.address-section {
+  width: 100%;
+  max-width: 800px;
+  margin-top: 20px;
+  background: #f9f9f9;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* .add-address-button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.add-address-button:hover {
+  background-color: #0056b3;
+} */
+
+.address-form {
+  margin-top: 10px;
+}
+
+.address-form input,
+.address-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+/* .address-form button {
+  background-color: #28a745;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+} */
+
+/* .address-form button:hover {
+  background-color: #218838;
+} */
+
+.address-card {
+  background: #fff;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.address-card p {
+  margin: 5px 0;
+}
+
+@media (max-width: 768px) {
+  .address-section {
+    padding: 1rem;
+  }
+
+  .add-address-button {
+    width: 100%;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .address-form input,
+  .address-form textarea {
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+
+  .address-form button {
+    width: 100%;
+    font-size: 0.9rem;
+  }
+}
