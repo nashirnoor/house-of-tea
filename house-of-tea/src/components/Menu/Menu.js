@@ -922,14 +922,18 @@ const productData = {
 };
 
 const Menu = () => {
-  const { t } = useTranslation();
+  const { t ,i18n} = useTranslation();
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [loading,setLoading]=useState(true)
   const [sidebarVisible, setSidebarVisible] = useState(true);
   const [productData, setProductData] = useState({})
+  
+  
   useEffect(() => {
-    fetch(baseUrl()+'/products/menu',{headers:{'Accept-Language': localStorage.getItem('language')?'en':localStorage.getItem('language')}}).then(function (a) {
+    setLoading(true)
+    let data={}
+    fetch(baseUrl()+'/products/menu',{headers:{'Accept-Language': i18n.language}}).then(function (a) {
       return a.json();
     }).then((res) => {
       // setTimeout(()=>{
@@ -940,16 +944,16 @@ const Menu = () => {
           e.products[idx].image=baseUrl()+e.products[idx].image
           
         })
-        productData[e.name] = [...e.products]
+        data[e.name] = [...e.products]
       })
-      setProductData({ ...productData })
-      setSelectedCategory(Object.keys(productData)[0])
+      setProductData({ ...data })
+      setSelectedCategory(Object.keys(data)[0])
       setLoading(false)
 
       // },6000)
 
     })
-  }, [])
+  }, [i18n.language])
   const navigate = useNavigate();
   const { addToCart } = useContext(CartContext);
 
@@ -1074,7 +1078,7 @@ const Menu = () => {
               className={`menu-item ${selectedCategory === category ? "active" : ""
                 }`}
             >
-              {t(`Menu.${category}`)}
+              {category}
             </div>
           ))}
         </div>
