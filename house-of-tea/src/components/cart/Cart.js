@@ -261,7 +261,7 @@ console.log('cartMenuss:',cartmenu);
           <h4> {t("cart.empty_cart")}</h4>
           <Link
             to="/menu"
-            style={{ color: "black", textDecoration: "underline" }}
+            style={{ color: "white", textDecoration: "underline" }}
           >
             {t("cart.Continue_Shopping")}
           </Link>
