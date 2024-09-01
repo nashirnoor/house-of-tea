@@ -1,5 +1,4 @@
 from rest_framework import serializers
-
 from products.models import Products,Categories, Sizes
 
 class SizeSerializer(serializers.ModelSerializer):

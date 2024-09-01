@@ -929,7 +929,7 @@ const Menu = () => {
   const [sidebarVisible, setSidebarVisible] = useState(true);
   const [productData, setProductData] = useState({})
   useEffect(() => {
-    fetch(baseUrl()+'/products/menu').then(function (a) {
+    fetch(baseUrl()+'/products/menu',{headers:{'Accept-Language': localStorage.getItem('language')?'en':localStorage.getItem('language')}}).then(function (a) {
       return a.json();
     }).then((res) => {
       // setTimeout(()=>{
