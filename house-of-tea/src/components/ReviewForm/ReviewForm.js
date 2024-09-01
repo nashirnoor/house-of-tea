@@ -157,7 +157,7 @@ const ReviewForm = () => {
     // const mailtoLink = `mailto:ingo@houseoftea.qa?subject=Review from ${encodeURIComponent(name)}&body=Name: ${encodeURIComponent(name)}%0D%0AEmail: ${encodeURIComponent(email)}%0D%0ARating: ${encodeURIComponent(rating)}%0D%0AReview: ${encodeURIComponent(review)}`;
     // window.location.href = mailtoLink;
     setLoading(true)
-    fetch(baseUrl+'/contact-us/send',{
+    fetch(baseUrl()+'/contact-us/send',{
       method:'POST',
       body: JSON.stringify({...formData}), 
       headers: { 

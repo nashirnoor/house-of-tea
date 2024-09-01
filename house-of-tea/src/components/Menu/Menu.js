@@ -929,7 +929,7 @@ const Menu = () => {
   const [sidebarVisible, setSidebarVisible] = useState(true);
   const [productData, setProductData] = useState({})
   useEffect(() => {
-    fetch(baseUrl+'/products/menu').then(function (a) {
+    fetch(baseUrl()+'/products/menu').then(function (a) {
       return a.json();
     }).then((res) => {
       // setTimeout(()=>{
@@ -937,7 +937,7 @@ const Menu = () => {
       
       res.data.map(e => {
         e.products.map((product,idx)=>{
-          e.products[idx].image=baseUrl+e.products[idx].image
+          e.products[idx].image=baseUrl()+e.products[idx].image
           
         })
         productData[e.name] = [...e.products]

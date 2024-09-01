@@ -17,10 +17,13 @@ Including another URLconf
 from .admin import admin_site
 from django.urls import include, path
 from django.conf.urls.static import static
+from django.conf.urls.i18n import i18n_patterns
 from django.conf import settings
 
-urlpatterns = [
+urlpatterns = i18n_patterns(
     path('admin/', admin_site.urls),
     path('products/',include('products.urls')),
     path('contact-us/',include('contact.urls')),
-]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path('',include(static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT))),
+    )
+
