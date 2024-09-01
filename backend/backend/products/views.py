@@ -12,7 +12,7 @@ from .serializers import CatogerySerializerAR,CatogerySerializer
 @api_view(['GET'])
 def get_menu(request):
     print(request.META.get('HTTP_ACCEPT_LANGUAGE','did nt get'))
-    if request.META.get('HTTP_ACCEPT_LANGUAGE','')=='ar':
+    if request.META.get('HTTP_ACCEPT_LANGUAGE','')=='ar':  
         data=CatogerySerializerAR(Categories.objects.all(),many=True).data
     else:
         data=CatogerySerializer(Categories.objects.all(),many=True).data
