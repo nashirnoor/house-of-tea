@@ -179,7 +179,7 @@ const ReviewForm = () => {
   };
 
   return (
-    <div className="review-form-container">
+    <div className="review-form-container" >
       <h2 className="review-heading">{t('Review.Review')}</h2>
       <form onSubmit={handleSubmit} className="review-form">
         <div className="form-group">
