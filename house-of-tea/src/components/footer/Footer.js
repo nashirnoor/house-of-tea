@@ -95,7 +95,7 @@ function Footer() {
   const { t } = useTranslation();
 
   return (
-    <div className="footer">
+    <div className="footer" style={{backgroundColor:"black"}}>
       <div className="logofooter">
         <img src={logoWhite} alt="" style={{height:'120px'}} />
       </div>

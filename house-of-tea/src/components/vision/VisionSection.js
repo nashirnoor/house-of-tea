@@ -61,8 +61,8 @@
 
 
 import React, { useState } from "react";
-import contentLogo from "../../assets/content-logo/Frame 4 1.png";
-import contentLogo2 from "../../assets/content-logo/Frame 5 1.png";
+import contentLogo from "../../assets/content-logo/Frame 4 1 white fill.png";
+import contentLogo2 from "../../assets/content-logo/Frame 5 1 white fill.png";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import "./VisionSection.css";

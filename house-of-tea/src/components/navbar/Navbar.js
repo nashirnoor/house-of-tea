@@ -404,7 +404,7 @@ function Navbar() {
   const { t } = useTranslation();
   const { getTotalItems } = useContext(CartContext);
   const [nav, setNav] = useState(false);
-  const [bgnav, setBgnav] = useState(false);
+  const [bgnav, setBgnav] = useState(true);
   const [dropdown, setDropdown] = useState(false);
   const [totalItems, setTotalItems] = useState(getTotalItems());
 
@@ -420,11 +420,11 @@ function Navbar() {
   const logo = location === '/' ? homeLogo : pagelogo;
   
   const changeBackground = () => {
-    if (window.scrollY >= 80) {
-      setBgnav(true);
-    } else {
-      setBgnav(false);
-    }
+    // if (window.scrollY >= 80) {
+     setBgnav(true);
+    // } else {
+      //setBgnav(false);
+    //}
   };
 
   useEffect(() => {

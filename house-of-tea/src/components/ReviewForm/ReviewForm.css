@@ -57,7 +57,7 @@
     margin: 20px auto;
     padding: 25px;
     border-radius: 12px;
-    background-color: #f7f7f7;
+    background-color: lightsteelblue;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
     font-family: 'Open Sans', sans-serif;
     text-align: center;
@@ -67,7 +67,7 @@
     font-size: 24px;
     font-weight: 700;
     margin-bottom: 20px;
-    color: #333;
+    color: #ffffff;
   }
   
   .review-form {
@@ -83,7 +83,7 @@
     display: block;
     font-size: 14px;
     font-weight: 600;
-    color: #555;
+    color: #222;
     margin-bottom: 6px;
   }
   

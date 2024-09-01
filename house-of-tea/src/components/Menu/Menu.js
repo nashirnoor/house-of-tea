@@ -925,13 +925,16 @@ const Menu = () => {
   const { t } = useTranslation();
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [loading,setLoading]=useState(true)
   const [sidebarVisible, setSidebarVisible] = useState(true);
   const [productData, setProductData] = useState({})
   useEffect(() => {
     fetch(baseUrl+'/products/menu').then(function (a) {
       return a.json();
     }).then((res) => {
+      // setTimeout(()=>{
       console.log(res.data)
+      
       res.data.map(e => {
         e.products.map((product,idx)=>{
           e.products[idx].image=baseUrl+e.products[idx].image
@@ -941,7 +944,9 @@ const Menu = () => {
       })
       setProductData({ ...productData })
       setSelectedCategory(Object.keys(productData)[0])
+      setLoading(false)
 
+      // },6000)
 
     })
   }, [])
@@ -1056,11 +1061,11 @@ const Menu = () => {
     <div className="menu-container">
       <ToastContainer />
       <button className="sidebar-toggle" onClick={toggleSidebar}>
-        {sidebarVisible ? t("Menu.close_menu") : t("Menu.open_menu")}
+        {sidebarVisible  ? t("Menu.close_menu") : t("Menu.open_menu")}
       </button>
 
       <div className={`sidebar ${!sidebarVisible ? "hidden" : ""}`}>
-        <h2 className="menu-title">{t("Menu.menu")}</h2>
+        <h2 className="menu-title">{loading?'loading....':t("Menu.menu")}</h2>
         <div className="menu-list">
           {Object.keys(productData).map((category) => (
             <div
@@ -1076,7 +1081,7 @@ const Menu = () => {
       </div>
 
       <div className={`content ${!sidebarVisible ? "expanded" : ""}`}>
-        <h2 className="category-title">{t(`Menu.${selectedCategory}`)}</h2>
+        <h2 className="category-title">{loading && !sidebarVisible?'loading..': t(`Menu.${selectedCategory}`)}</h2>
         <div className="product-grid">
           {productData[selectedCategory]?.map((product) => (
             <div
@@ -1090,12 +1095,12 @@ const Menu = () => {
                 className="product-image"
                 loading="lazy"
               />
-              <h3 className="product-name">{t(`Products.${product.name}`)}</h3>
+              <h3 className="product-name">{t(`${product.name}`)}</h3>
               {/* <p className="product-description">
                 {t(`Products.${product.description}`)}
               </p> */}
 
-              {!product.price ? (
+              {!product.price? (
                 <div className="size-options">
                   {product.sizes.map((sizeOption) => (
                     <button

@@ -117,6 +117,7 @@ function ContactUs() {
       initial={{ width: 0 }}
       animate={{ width: "100%" }}
       exit={{ x: window.innerWidth }}
+    style={{backgroundColor:'black',color:'white'}}
     >
       <Container>
         <Row style={{ width: "100%" }}>

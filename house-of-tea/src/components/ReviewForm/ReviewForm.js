@@ -117,6 +117,7 @@ import { baseUrl } from '../../constants';
 
 const ReviewForm = () => {
   const { t } = useTranslation();
+  const [loading,setLoading]=useState(false)
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -125,6 +126,7 @@ const ReviewForm = () => {
   });
 
   const handleChange = (e) => {
+    
     const { name, value } = e.target;
     setFormData({
       ...formData,
@@ -140,6 +142,9 @@ const ReviewForm = () => {
   };
 
   const handleSubmit = (e) => {
+    if(loading){
+      return;
+    }
     e.preventDefault();
     const { name, email, review, rating } = formData;
 
@@ -151,6 +156,7 @@ const ReviewForm = () => {
     // const mailtoLink = `mailto:muhdzahal123@gmail.com?subject=Review from ${encodeURIComponent(name)}&body=Name: ${encodeURIComponent(name)}%0D%0AEmail: ${encodeURIComponent(email)}%0D%0ARating: ${encodeURIComponent(rating)}%0D%0AReview: ${encodeURIComponent(review)}`;
     // const mailtoLink = `mailto:ingo@houseoftea.qa?subject=Review from ${encodeURIComponent(name)}&body=Name: ${encodeURIComponent(name)}%0D%0AEmail: ${encodeURIComponent(email)}%0D%0ARating: ${encodeURIComponent(rating)}%0D%0AReview: ${encodeURIComponent(review)}`;
     // window.location.href = mailtoLink;
+    setLoading(true)
     fetch(baseUrl+'/contact-us/send',{
       method:'POST',
       body: JSON.stringify({...formData}), 
@@ -164,6 +170,9 @@ const ReviewForm = () => {
       review: '',
       rating: 0
     });
+    setLoading(false)
+    }).catch(()=>{
+      setLoading(false)
     })
 
     
@@ -223,7 +232,7 @@ const ReviewForm = () => {
           />
         </div>
         <button type="submit" className="submit-button">
-          {t('Review.submit')}
+          {loading?'Loading...':t('Review.submit')}
         </button>
       </form>
     </div>

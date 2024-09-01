@@ -116,6 +116,7 @@ function AboutUs() {
       initial={{ width: 0 }}
       animate={{ width: "100%" }}
       exit={{ x: window.innerWidth }}
+      style={{backgroundColor:'black'}}
     >
       {/* <Container>
         <Row style={{ width: "100%" }}>
