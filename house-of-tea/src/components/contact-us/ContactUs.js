@@ -162,7 +162,7 @@ function ContactUs() {
               </div>
               <div className="contact-card-detail">
                 {/* {t('contactUs.callNumbers')} */}
-                +974 12345678
+                +974 70377366
               </div>
             </div>
           </Col>
@@ -183,7 +183,7 @@ function ContactUs() {
               </div>
               <div className="contact-card-detail">
                 {/* {t('contactUs.emailAddress')} */}
-                demo@houseoftea.com
+                info@houseoftea.qa
               </div>
             </div>
           </Col>
@@ -205,7 +205,7 @@ function ContactUs() {
               </div>
               <div className="contact-card-detail">
                 {/* {t('contactUs.visitAddress')} */}
-                +974 12345678
+                +974 70377366
               </div>
             </div>
           </Col>

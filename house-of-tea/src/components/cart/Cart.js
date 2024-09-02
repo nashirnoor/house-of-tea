@@ -69,7 +69,7 @@ const Cart = () => {
       name: "Al Khor ",
       latitude: 25.6839,
       longitude: 51.5017,
-      // whatsappNumber: "+97431062060",
+      // whatsappNumber: "+97470377366",
     },
     {
       name: "Lekhdaira ",
@@ -134,7 +134,7 @@ const Cart = () => {
       });
       return;
     }
-    
+
 
     if (!address.zone || !address.street || !address.building) {
       toast.error(
@@ -162,18 +162,15 @@ const Cart = () => {
       `Order Details:\n\n${cartItems
         .map(
           (item, index) =>
-            `${index + 1}. Product: ${item.name}\n Size : ${item.selectedSize}\nQuantity: ${
-              item.quantity
+            `${index + 1}. Product: ${item.name}\n Size : ${item.selectedSize}\nQuantity: ${item.quantity
             }\nPrice: ${item.price} QAR\n\n`
         )
         .join(
           "\n\n"
         )}\n\nTotal Quantity: ${totalQuantity}\nTotal Price: ${totalPrice.toFixed(
-        2
-      )} QAR\nGrand Total: ${grandTotal.toFixed(2)} QAR\n\nAddress: \n\nZone: ${
-        address.zone
-      }, \n\nStreet: ${address.street}, \n\nBuildin NO: ${
-        address.building
+          2
+        )} QAR\nGrand Total: ${grandTotal.toFixed(2)} QAR\n\nAddress: \n\nZone: ${address.zone
+      }, \n\nStreet: ${address.street}, \n\nBuildin NO: ${address.building
       },\n\n LandMark: ${address.details}\n\n\n`
     );
 
@@ -220,9 +217,9 @@ const Cart = () => {
     const a =
       Math.sin(dLat / 2) * Math.sin(dLat / 2) +
       Math.cos((lat1 * Math.PI) / 180) *
-        Math.cos((lat2 * Math.PI) / 180) *
-        Math.sin(dLon / 2) *
-        Math.sin(dLon / 2);
+      Math.cos((lat2 * Math.PI) / 180) *
+      Math.sin(dLon / 2) *
+      Math.sin(dLon / 2);
     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
     return R * c;
   };
@@ -250,8 +247,9 @@ const Cart = () => {
   const saveAddress = () => {
     setShowAddressForm(false);
   };
-const cartmenu = cartItems.map((items)=>(items.sizes))
-console.log('cartMenuss:',cartmenu);
+  const cartmenu = cartItems.map((items) => (items.sizes))
+  console.log('cartMenuss:', cartmenu);
+  console.log(cartItems)
 
   return (
     <div className="cart-container">
@@ -288,13 +286,21 @@ console.log('cartMenuss:',cartmenu);
                   <div className="cart-item-details">
                     <h3>
                       {t(`Products.${item.name}`)}
-                      {}
+                      { }
                     </h3>
                     {item.sizes && (
-                      <p className="cart-item-size">
-                        Size: {item.selectedSize}
-                      </p>
+                      <div className="cart-item-size" style={{ paddingLeft: '5px' }}>
+                        {item.sizes.map(e => {
+                          console.log('include',item.selectedSize.includes(e.size))
+                          return (
+                            <div style={{ display: 'flex' }}>
+                              <input type="checkbox" checked={item.selectedSize.includes(e.size)}/> 
+                              <p>{e.size} ({e.price}QR)</p>
+                            </div>)
+                        })}
+                      </div>
                     )}
+
                     <div
                       style={{
                         display: "flex",
@@ -333,10 +339,10 @@ console.log('cartMenuss:',cartmenu);
                         <FaTrash />
                       </button>
                     </div>
-                    <div className="item-price">
+                    {item.price && <div className="item-price">
                       {t("Menu.price", { price: item.price })}
                       {/* Price: {item.price.toFixed(2)} QAR */}
-                    </div>
+                    </div>}
                   </div>
                 </div>
               ))}

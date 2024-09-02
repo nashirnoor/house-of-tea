@@ -141,16 +141,16 @@ function Footer() {
         </div> */}
         <div className="footerHeading">{t("footer.phone")}</div>
         <div className="footerDetail">
-          <IoCallSharp /> +974 12345678
+          <IoCallSharp /> +974 70377366
         </div>
         <div className="footerDetail">
           <IoLogoWhatsapp />
-          +974 12345678
+          +974 70377366
         </div>
         <div className="footerHeading">{t("footer.email")}</div>
         <div className="footerDetail">
           <MdEmail />
-          info@houseof-group.com
+          info@houseoftea.qa
         </div>
       </div>
     </div>

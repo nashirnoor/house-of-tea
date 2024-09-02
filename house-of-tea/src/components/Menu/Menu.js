@@ -937,18 +937,18 @@ const Menu = () => {
       return a.json();
     }).then((res) => {
       //setTimeout(() => {
-        console.log(res.data)
+      console.log(res.data)
 
-        res.data.map(e => {
-          e.products.map((product, idx) => {
-            e.products[idx].image = baseUrl() + e.products[idx].image
+      res.data.map(e => {
+        e.products.map((product, idx) => {
+          e.products[idx].image = baseUrl() + e.products[idx].image
 
-          })
-          data[e.name] = [...e.products]
         })
-        setProductData({ ...data })
-        setSelectedCategory(Object.keys(data)[0])
-        setLoading(false)
+        data[e.name] = [...e.products]
+      })
+      setProductData({ ...data })
+      setSelectedCategory(Object.keys(data)[0])
+      setLoading(false)
 
       //}, 6000)
 
@@ -1018,8 +1018,21 @@ const Menu = () => {
   //   [addToCart, showToastMessage, selectedSize, t]
   // );
   const [selectedSize, setSelectedSize] = useState({});
+  useEffect(() => {
+    console.log(selectedSize)
+  }, [selectedSize])
   const handleSizeChange = (productId, size) => {
-    setSelectedSize((prev) => ({ ...prev, [productId]: size }));
+    if (selectedSize[productId]) {
+      if (selectedSize[productId].includes(size)) {
+        selectedSize[productId].splice(selectedSize[productId].indexOf(size), 1)
+        setSelectedSize((prev) => ({ ...prev, [productId]: [...selectedSize[productId],] }));
+      } else
+        setSelectedSize((prev) => ({ ...prev, [productId]: [...selectedSize[productId], size] }));
+    }
+    else
+      setSelectedSize((prev) => ({ ...prev, [productId]: [size] }));
+
+
   };
 
   const handleAddToCart = (product) => {
@@ -1027,16 +1040,27 @@ const Menu = () => {
 
     if (product.sizes && product.sizes.length > 0) {
       // Product has multiple sizes, check if size is selected
-      if (selectedSizeForProduct) {
-        const sizeDetails = product.sizes.find(
-          (s) => s.size === selectedSizeForProduct
+      if (selectedSizeForProduct.length>0) {
+        const sizeDetails = product.sizes.filter(
+          (s) => selectedSizeForProduct.includes(s.size)
         );
+        console.log(sizeDetails, selectedSizeForProduct)
         if (sizeDetails) {
+
           addToCart({
             ...product,
             selectedSize: selectedSizeForProduct,
-            price: sizeDetails.price,
+            price: product.sizes.filter(
+              obj => selectedSizeForProduct.includes(obj.size)
+            ).map(obj=>obj.price).reduce((sum, price) => {
+
+              return sum + price
+
+
+            })
+
           });
+          setSelectedSize((prev) => ({ ...prev, [product.id]: [] }));
           showToastMessage();
         } else {
           toast.error("Selected size is not available.", {
@@ -1071,25 +1095,25 @@ const Menu = () => {
       <div className={`sidebar ${!sidebarVisible ? "hidden" : ""}`}>
         <h2 className="menu-title">{t("Menu.menu")}</h2>
         {loading ?
-          <p style={{ textAlign: 'center', width: '100%' ,margin:'auto'}}>loading...</p>
-          :<div className="menu-list">
-          {Object.keys(productData).map((category) => (
-            <div
-              key={category}
-              onClick={() => handleMenuClick(category)}
-              className={`menu-item ${selectedCategory === category ? "active" : ""
-                }`}
-            >
-              {category}
-            </div>
-          ))}
-        </div>}
+          <p style={{ textAlign: 'center', width: '100%', margin: 'auto' }}>loading...</p>
+          : <div className="menu-list">
+            {Object.keys(productData).map((category) => (
+              <div
+                key={category}
+                onClick={() => handleMenuClick(category)}
+                className={`menu-item ${selectedCategory === category ? "active" : ""
+                  }`}
+              >
+                {category}
+              </div>
+            ))}
+          </div>}
       </div>
 
       <div className={`content ${!sidebarVisible ? "expanded" : ""}`}>
         <h2 className="category-title">{loading && !sidebarVisible ? 'loading..' : selectedCategory}</h2>
         {loading ?
-          <p style={{ textAlign: 'center', width: '100%' ,margin:'auto'}}>loading...</p>
+          <p style={{ textAlign: 'center', width: '100%', margin: 'auto' }}>loading...</p>
           :
           <div className="product-grid">
             {
@@ -1110,21 +1134,30 @@ const Menu = () => {
                 {t(`Products.${product.description}`)}
               </p> */}
 
-                  {!product.price ? (
+                  {product.sizes ? (
                     <div className="size-options">
                       {product.sizes.map((sizeOption) => (
-                        <button
-                          key={sizeOption.size}
-                          className={`size-option ${selectedSize[product.id] === sizeOption.size
-                            ? "selected"
-                            : ""
-                            }`}
-                          onClick={() =>
-                            handleSizeChange(product.id, sizeOption.size)
-                          }
-                        >
-                          {sizeOption.size} ({sizeOption.price.toFixed(2)} QR)
-                        </button>
+                        // <button
+                        //   key={sizeOption.size}
+                        //   className={`size-option ${selectedSize[product.id] === sizeOption.size
+                        //     ? "selected"
+                        //     : ""
+                        //     }`}
+                        //   onClick={() =>
+                        //     
+                        //   }
+                        // >
+                        //   {sizeOption.size} ({sizeOption.price.toFixed(2)} QR)
+                        // </button>
+                        <div style={{ display: 'flex', }}>
+                          <input type="checkbox" name="" id="" style={{ marginTop: 'auto', marginBottom: 'auto' }}
+                            checked={selectedSize.hasOwnProperty(product.id) && selectedSize[product.id].includes(sizeOption.size)}
+                            
+                            onChange={() => {
+                              handleSizeChange(product.id, sizeOption.size)
+                            }} />
+                          <p style={{ alignItems: 'center', marginTop: 'auto', marginBottom: 'auto' }}>{sizeOption.size}  ({sizeOption.price.toFixed(2)} QR)</p>
+                        </div>
                       ))}
                     </div>
                   ) : (

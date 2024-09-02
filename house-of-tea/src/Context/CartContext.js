@@ -24,7 +24,7 @@ export const CartProvider = ({ children }) => {
   const addToCart = (product) => {
     setCartItems((prevItems) => {
       const existingItemIndex = prevItems.findIndex(
-        (item) => item.id === product.id
+        (item) => item.id === product.id && item.sizes==product.sizes
       );
       if (existingItemIndex > -1) {
         const updatedItems = [...prevItems];
