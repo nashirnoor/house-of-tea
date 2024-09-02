@@ -3,7 +3,7 @@ from django.http import JsonResponse
 from django.shortcuts import render
 from rest_framework.decorators import api_view
 
-from .models import Products,Categories
+from .models import Categories
 
 from .serializers import CatogerySerializerAR,CatogerySerializer
 
