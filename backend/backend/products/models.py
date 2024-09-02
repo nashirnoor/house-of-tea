@@ -23,6 +23,7 @@ class Products(models.Model):
     image=models.ImageField(upload_to='product_images')
     name=models.CharField(max_length=50)
     description=models.TextField(null=True,blank=True)
+    
     price=models.FloatField(null=True,blank=True)
     sizes=models.ManyToManyField(to=Sizes,null=True,blank=True,related_name='products')
     def __str__(self) -> str:
@@ -31,11 +32,6 @@ class Products(models.Model):
     class Meta:
         verbose_name_plural = "Products"
 
-    #     constraints = [
-    #         models.CheckConstraint(check=Q(price__isnull=False) |
-    #                                 Q(sizes__isnull=False)
-    #                                 , name='price_or_size_required')
-    #     ]
 
 
 
