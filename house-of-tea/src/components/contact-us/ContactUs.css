@@ -83,7 +83,8 @@
   width: 335px;
   height: 296px;
   padding: 2.5rem 2.5rem;
-  
+  /* margin-left: auto;
+    margin-right: auto; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -138,16 +139,17 @@
 
 @media screen and (max-width: 1100px) {
 }
-@media screen and (max-width: 945px) {
+@media screen and (max-width: 945px) {.contact-card{
+    margin-left: auto;
+    margin-right: auto;
+  }
   .contact-heading {
     font-size: 30px;
   }
   .contact-heading-desc {
     font-size: 18px;
-  }.contact-card{
-    margin-left: auto;
-    margin-right: auto;
   }
+  
 }
 @media screen and (max-width: 767px) {
   .contact-heading {

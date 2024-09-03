@@ -20,10 +20,16 @@ body{
   font-family: 'Montserrat','Open Sans', sans-serif;
   color: white;
   background-color: black;
-  width:100%;
+  
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  position: relative;
   
 }
-
+html{
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
 ul{
   list-style-type: none;
 }
