@@ -516,6 +516,10 @@
   .pattern-about{
     margin-top: 900px;
   }
+  .pattern-footer{
+    margin-top:2700px ;
+    background-position-x: 200px;
+  }
   .slider-heading {
     font-size: 26px;
   }

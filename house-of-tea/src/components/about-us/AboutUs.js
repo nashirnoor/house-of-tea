@@ -94,7 +94,7 @@
 
 // export default AboutUs;
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import "./AboutUs.css";
 import { motion } from "framer-motion";
@@ -107,10 +107,18 @@ import contentimg6 from "../../assets/teaimages/teimage4.jpg";
 import Carousel from "react-bootstrap/Carousel";
 import { useTranslation } from "react-i18next";
 import ReviewForm from "../ReviewForm/ReviewForm";
+import patternRight from "../../assets/patterns/color-pattern-right.png";
 
 function AboutUs() {
   const { t } = useTranslation();
 
+  const [trans, setTrans] = useState(0)
+  useEffect(() => {
+    window.addEventListener('scroll', () => {
+
+      setTrans(window.scrollY)
+    })
+  }, [])
   return (
     <motion.div
       initial={{ width: 0 }}
@@ -226,6 +234,13 @@ function AboutUs() {
                
             <Col sm={12} md={6}>
               <div className="content-1-img-section">
+                <div className="pattern-about" style={{
+                marginLeft: 'auto',
+                backgroundImage: `url("${patternRight}")`,
+                transform: `translateY(-${trans}px)`,
+               
+                
+              }}></div>
                 <Carousel pause={false}>
                   <Carousel.Item interval={2000}>
                     <div className="carousel-img-wrapper">
@@ -287,6 +302,7 @@ function AboutUs() {
                 
               </div>
             </Col>
+            
           </Row>
         </Container>
     </motion.div>

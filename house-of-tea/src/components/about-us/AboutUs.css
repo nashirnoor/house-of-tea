@@ -174,7 +174,23 @@
   z-index: 1;
   animation: fadeInDown 2s ease-in-out;
 }
-
+.pattern-about {
+  margin-left: auto !important;
+  
+  width: 500px;
+  height: 550px;
+  background-repeat: no-repeat;
+  background-position-x: 90px;
+  background-blend-mode: multiply;
+  opacity:0.5;
+  margin-top: 550px;
+  /* background-position-y:-80px ; */
+  position: absolute;
+  background-size: cover;
+  
+  left: 0px;
+  right: 0px;
+}
 @keyframes fadeInDown {
   from {
     opacity: 0;
