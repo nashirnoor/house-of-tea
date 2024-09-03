@@ -205,6 +205,7 @@ function AboutUs() {
       </Container> */}
       <Container>
       <Row style={{ width: "100%" }}>
+           
           <Col>
             <div className="oil-banner7">
               <div className="overlay7">
@@ -222,6 +223,7 @@ function AboutUs() {
           </Col>
         </Row>
           <Row>
+               
             <Col sm={12} md={6}>
               <div className="content-1-img-section">
                 <Carousel pause={false}>

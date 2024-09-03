@@ -181,7 +181,7 @@ function ContactUs() {
               <div className="contact-card-title-desc">
                 {t('contactUs.emailDetails')}
               </div>
-              <div className="contact-card-detail">
+              <div className="contact-card-detail-lower">
                 {/* {t('contactUs.emailAddress')} */}
                 info@houseoftea.qa
               </div>

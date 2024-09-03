@@ -148,7 +148,7 @@ function Footer() {
           +974 70377366
         </div>
         <div className="footerHeading">{t("footer.email")}</div>
-        <div className="footerDetail">
+        <div className="footerDetail-lower">
           <MdEmail />
           info@houseoftea.qa
         </div>

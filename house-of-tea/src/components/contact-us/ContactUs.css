@@ -93,10 +93,22 @@
 
   text-transform: capitalize;
 }
+.contact-card-detail-lower {
+  color: #ffffff;
+  font-family: "Open Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 30px;
+  text-decoration-line: underline;
 
+  
+}
 .contact-card-detail {
   text-decoration-line: underline;
 }
+
+
 .contact-card-title-desc {
   color: #616161;
   font-family: "Open Sans";

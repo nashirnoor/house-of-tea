@@ -241,7 +241,7 @@ function Home() {
 
         <Container>
           <Row>
-            <Col sm={12} md={6}>
+           <Col sm={12} md={6}>
               <div className="content-1-img-section">
                 <Carousel pause={false}>
                   <Carousel.Item interval={2000}>
