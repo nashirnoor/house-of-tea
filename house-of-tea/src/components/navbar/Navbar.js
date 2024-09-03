@@ -471,7 +471,7 @@ function Navbar() {
   ];
 
   return (
-    <div>
+    <div >
       <div className={bgnav ? "nav-header active" : "nav-header"}>
         <Link to={"/"}>
           <div className={bgnav ? "logo1" : "logo"}>

@@ -210,16 +210,35 @@ function Home() {
     autoplaySpeed: 5000,
     cssEase: "linear",
   };
+  const pageRef=useRef()
+  // useEffect(() => {
+    
+  //   pageRef.current.addEventListener('scroll',()=>{
+  //     console.log(pageRef.current.scrollY)
+  //   })
+  //   window.addEventListener('scroll', () => {
+  //     setTrans(window.scrollY)
+  //   })
+  // }, [])
   useEffect(() => {
-    window.addEventListener('scroll', () => {
+    const handleScroll = () => {
+      // Use document.documentElement.scrollTop for modern browsers
+      const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    console.log(trans,document.documentElement.scrollTop , document.body.scrollTop)
+      setTrans(scrollTop);
+    };
+    window.addEventListener('scroll', handleScroll);
 
-      setTrans(window.scrollY)
-    })
-  }, [])
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
 
   return (
     <motion.div
+    ref={pageRef}
+    
       initial={{ width: 0 }}
       animate={{ width: "100%" }}
       exit={{ x: window.innerWidth }}

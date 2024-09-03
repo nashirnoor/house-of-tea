@@ -21,16 +21,23 @@ body{
   color: white;
   background-color: black;
   
-  overflow-x: hidden;
+  overflow: hidden; /* Changed to auto to allow for natural scrolling */
   scroll-behavior: smooth;
-  position: relative;
   
+  position: relative;
   
 }
-html{
-  /* overflow-y: hidden; */
+html {
+  overflow-x: hidden; /* Hides overflow on the root element */
   scroll-behavior: smooth;
+ 
   position: relative;
+}
+.animated-element {
+  position: absolute; /* Use absolute positioning if necessary */
+  top: 0;
+  left: 0;
+  width: 100%; /* Ensure the element fills the container */
 }
 ul{
   list-style-type: none;
