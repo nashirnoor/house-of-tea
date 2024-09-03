@@ -250,19 +250,7 @@ function Home() {
 
         <Container >
           <Row>
-            <div style={{
-              marginLeft: 'auto',
-              marginTop:'600px',
-              width: '300px',
-              height: '350px',
-              backgroundImage: `url("${patternRight}")`,
-              backgroundRepeat:'no-repeat',
-              backgroundPositionX:'80px',
-              backgroundBlendMode: 'multiply',
-              position: 'absolute', left: '0px', right: '0px',
-              transform:`translateY(-${trans}px)`
-            }}>
-            </div>
+           
             <Col sm={12} md={6} style={{ zIndex: '1' }}>
               <div className="content-1-img-section">
                 <Carousel pause={false}>
@@ -330,7 +318,13 @@ function Home() {
                     </button>
                   </Link>
                 </div>
-              </div>
+              </div> <div className="pattern" style={{
+              marginLeft:'auto',
+              backgroundImage: `url("${patternRight}")`,
+              
+              transform:`translateY(-${trans}px)`
+            }}>
+            </div>
             </Col>
           </Row>
         </Container>
