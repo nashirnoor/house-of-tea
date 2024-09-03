@@ -79,7 +79,7 @@
 // export default Footer;
 
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import logoWhite from "../../assets/logo/hft-logo1.png";
 import "./Footer.css";
 import { IoCallSharp } from "react-icons/io5";
@@ -90,12 +90,20 @@ import instagarmicon from "../../assets/instagram.png";
 import { Link } from "react-router-dom";
 import ReviewForm from "../ReviewForm/ReviewForm";
 import { useTranslation } from "react-i18next";
+import patternRight from "../../assets/patterns/color-pattern-right.png";
 
 function Footer() {
   const { t } = useTranslation();
+  const [trans, setTrans] = useState(0)
+  useEffect(() => {
+    window.addEventListener('scroll', () => {
 
+      setTrans(window.scrollY)
+    })
+  }, [])
   return (
     <div className="footer" style={{backgroundColor:"black"}}>
+      
       <div className="logofooter">
         <img src={logoWhite} alt="" style={{height:'120px'}} />
       </div>
@@ -135,6 +143,7 @@ function Footer() {
         </div>
       </div> */}
       <div className="contactfooter">
+      
         {/* <div className="footerHeading">{t("footer.address")}</div>
         <div className="footerDetail">
           {t("footer.address_detail")}

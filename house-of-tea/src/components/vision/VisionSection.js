@@ -60,27 +60,36 @@
 // export default VisionSection;
 
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import contentLogo from "../../assets/content-logo/Frame 4 1 white fill.png";
 import contentLogo2 from "../../assets/content-logo/Frame 5 1 white fill.png";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import patternLeft from "../../assets/patterns/color-pattern-left.svg";
 import "./VisionSection.css";
 
 function VisionSection() {
   const [selectedContent, setSelectedContent] = useState("vision");
   const { t } = useTranslation();
+  const [trans,setTrans]=useState(0)
+  useEffect(() => {
+    window.addEventListener('scroll', () => {
 
+      setTrans(window.scrollY)
+    })
+  }, [])
   const handleClick = (content) => {
     setSelectedContent(content);
   };
 
   return (
     <div className="container" style={{ marginTop: "6rem" }}>
+      
       <div className="section-heading">
         <div className="heading-text">{t("VisionSection.heading")}</div>
         <div className="heading-desc">{t("VisionSection.desc")}</div>
       </div>
+      
       <div className="button-group">
         <button
           onClick={() => handleClick("vision")}
@@ -131,6 +140,12 @@ function VisionSection() {
             </div>
           </div>
         )}
+      </div><div className="pattern-vision" style={{
+                backgroundImage: `url("${patternLeft}")`,
+                transform: `translateY(-${trans}px)`,
+                opacity:'0.5',
+                backgroundBlendMode:'multiply',
+              }}>
       </div>
     </div>
   );

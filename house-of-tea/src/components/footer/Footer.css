@@ -59,6 +59,7 @@
 .menu-list-link:hover {
   color: rgb(255, 207, 103);
 }
+
 @media screen and (max-width: 1100px) {
   .footer {
     flex-direction: column;

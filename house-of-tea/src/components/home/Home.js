@@ -181,7 +181,7 @@ import client4 from "../../assets/client-logo/image 23.png";
 import client5 from "../../assets/client-logo/image 24.png";
 import client6 from "../../assets/client-logo/image 25.png";
 import client7 from "../../assets/client-logo/image 26.png";
-import patternRight from "../../assets/patterns/pattern-right.svg";
+import patternRight from "../../assets/patterns/color-pattern-right.png";
 
 import VisionSection from "../vision/VisionSection";
 import { Link } from "react-router-dom";
@@ -200,7 +200,7 @@ const clientImage = [
 
 function Home() {
   const { t } = useTranslation();
-  const [trans,setTrans]=useState(0)
+  const [trans, setTrans] = useState(0)
   const settings = {
     infinite: true,
     slidesToShow: 3,
@@ -210,20 +210,20 @@ function Home() {
     autoplaySpeed: 5000,
     cssEase: "linear",
   };
-  useEffect(()=>{
-    window.addEventListener('scroll',()=>{
-    
-    setTrans(window.scrollY)
-  })
-  },[])
-  
- 
+  useEffect(() => {
+    window.addEventListener('scroll', () => {
+
+      setTrans(window.scrollY)
+    })
+  }, [])
+
+
   return (
     <motion.div
       initial={{ width: 0 }}
       animate={{ width: "100%" }}
       exit={{ x: window.innerWidth }}
-          >
+    >
       <div className="home">
         <div className="hero vid-div">
           <video autoPlay loop muted playsInline id="video">
@@ -250,7 +250,7 @@ function Home() {
 
         <Container >
           <Row>
-           
+
             <Col sm={12} md={6} style={{ zIndex: '1' }}>
               <div className="content-1-img-section">
                 <Carousel pause={false}>
@@ -303,7 +303,7 @@ function Home() {
               </div>
             </Col>
 
-            <Col>
+            <Col >
               <div className="content-1">
                 <div className="content-1-details">
                   <h1 className="heading">{t("home.about_the_company")}</h1>
@@ -318,13 +318,14 @@ function Home() {
                     </button>
                   </Link>
                 </div>
-              </div> <div className="pattern" style={{
-              marginLeft:'auto',
-              backgroundImage: `url("${patternRight}")`,
-              
-              transform:`translateY(-${trans}px)`
-            }}>
-            </div>
+              </div>
+              <div className="pattern-about" style={{
+                marginLeft: 'auto',
+                backgroundImage: `url("${patternRight}")`,
+                transform: `translateY(-${trans}px)`,
+                
+              }}>
+              </div>
             </Col>
           </Row>
         </Container>
@@ -353,7 +354,14 @@ function Home() {
 
         {/* <Certification /> */}
       </div>
+      <div className="pattern-footer" style={{
+                marginLeft: 'auto',
+                backgroundImage: `url("${patternRight}")`,
+                transform: `translateY(-${trans}px)`,
+                
+              }}></div>
     </motion.div>
+    
   );
 }
 

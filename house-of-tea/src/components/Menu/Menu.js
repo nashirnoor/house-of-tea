@@ -928,7 +928,8 @@ const Menu = () => {
   const [loading, setLoading] = useState(true)
   const [sidebarVisible, setSidebarVisible] = useState(true);
   const [productData, setProductData] = useState({})
-
+  const [trans, setTrans] = useState(0)
+  
 
   useEffect(() => {
     setLoading(true)
