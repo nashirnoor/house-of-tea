@@ -1,1 +1,1 @@
-export const baseUrl=()=>'http://13.127.147.199/'+localStorage.getItem('language')
+export const baseUrl=()=>'http://13.127.147.199/'+(localStorage.getItem('language')?localStorage.getItem('language'):'en')

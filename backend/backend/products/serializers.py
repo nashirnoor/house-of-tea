@@ -37,7 +37,7 @@ class SizeSerializerAR(serializers.ModelSerializer):
         if not obj.size_ar:
             obj.size_ar=translator.translate(obj.size,src='english',dest='arabic').text
             obj.save()
-        return obj.size
+        return obj.size_ar
     class Meta:
         model=Sizes
         fields = "__all__"
