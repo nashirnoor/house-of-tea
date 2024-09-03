@@ -24,7 +24,7 @@ export const CartProvider = ({ children }) => {
   const addToCart = (product) => {
     setCartItems((prevItems) => {
       const existingItemIndex = prevItems.findIndex(
-        (item) => item.id === product.id && item.sizes==product.sizes
+        (item) => item.id === product.id && item.sizes == product.sizes
       );
       if (existingItemIndex > -1) {
         const updatedItems = [...prevItems];
@@ -44,7 +44,22 @@ export const CartProvider = ({ children }) => {
       prevItems.map((item, i) => (i === index ? { ...item, quantity } : item))
     );
   };
-
+  const updateSize = (index, size) => {
+    setCartItems((prevItems) =>
+      prevItems.map((item, i) => {
+        if (i === index) {
+        console.log('size',size,item)
+          if (item.selectedSize && item.selectedSize.includes(size.size)) {
+            return { ...item, selectedSize: item.selectedSize.filter((e) => e !== size.size) };
+          } else {
+            return { ...item, selectedSize: [...item.selectedSize, size.size] };
+          }
+        }
+        return item;
+      })
+    );
+  };
+  
   const getCartItems = () => cartItems;
 
   const getTotalItems = () =>
@@ -62,7 +77,8 @@ export const CartProvider = ({ children }) => {
         updateQuantity,
         getCartItems,
         getTotalItems,
-        clearCart
+        clearCart,
+        updateSize
       }}
     >
       {children}

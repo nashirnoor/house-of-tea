@@ -10,7 +10,7 @@ import { useTranslation } from "react-i18next";
 const Cart = () => {
   const { t } = useTranslation();
 
-  const { getCartItems, removeFromCart, updateQuantity, clearCart } =
+  const { getCartItems, removeFromCart, updateQuantity, clearCart,updateSize } =
     useContext(CartContext);
   const cartItems = getCartItems();
   const [location, setLocation] = useState(null);
@@ -294,8 +294,10 @@ const Cart = () => {
                           console.log('include',item.selectedSize.includes(e.size))
                           return (
                             <div style={{ display: 'flex' }}>
-                              <input type="checkbox" checked={item.selectedSize.includes(e.size)}/> 
-                              <p>{e.size} ({e.price}QR)</p>
+                              <input type="checkbox" checked={item.selectedSize.includes(e.size)}
+                                onChange={()=>updateSize(index,e)}
+                              /> 
+                              <p>{e.size} ({e.price?.toFixed(2)}QR)</p>
                             </div>)
                         })}
                       </div>
@@ -340,7 +342,7 @@ const Cart = () => {
                       </button>
                     </div>
                     {item.price && <div className="item-price">
-                      {t("Menu.price", { price: item.price })}
+                      {t("Menu.price", { price: item.price?.toFixed(2) })}
                       {/* Price: {item.price.toFixed(2)} QAR */}
                     </div>}
                   </div>

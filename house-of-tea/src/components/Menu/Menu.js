@@ -1136,7 +1136,7 @@ const Menu = () => {
                 {t(`Products.${product.description}`)}
               </p> */}
 
-                  {product.sizes ? (
+                  {!product.price ? (
                     <div className="size-options">
                       {product.sizes.map((sizeOption) => (
                         // <button
