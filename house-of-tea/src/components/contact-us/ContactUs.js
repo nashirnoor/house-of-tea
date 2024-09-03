@@ -121,7 +121,7 @@ function ContactUs() {
     >
       <Container >
         <Row style={{ width: "100%" }}>
-          <Col>
+          <Col >
             <div className="banner8">
               <div className="overlay8"></div>
               <div className="title8">
@@ -145,7 +145,7 @@ function ContactUs() {
           </div>
         </Row>
         <Row className="contact-card-group">
-          <Col>
+          <Col >
             <div className="contact-card">
               <motion.div
                 whileHover={{ scale: 1.2, rotate: -20 }}

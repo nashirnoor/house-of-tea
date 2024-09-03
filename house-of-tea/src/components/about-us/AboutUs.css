@@ -183,7 +183,7 @@
   background-position-x: 90px;
   background-blend-mode: multiply;
   opacity:0.5;
-  margin-top: 550px;
+  margin-bottom: 100px;
   /* background-position-y:-80px ; */
   position: absolute;
   background-size: cover;
@@ -201,7 +201,7 @@
   /* background-position-y:-80px ; */
   position: absolute;
   background-size: cover;
-  margin-top: 1000px;
+  margin-top: 800px;
   opacity:0.5;
   left: 0px;
   right: 0px;
@@ -278,6 +278,10 @@
   .about-us-decs {
     font-size: 18px;
     padding: 0 1.5rem;
+
+  }
+  .pattern-left{
+    margin-top: 1450px;
   }
 }
 
@@ -286,9 +290,19 @@
     font-size: 16px;
     padding: 0 1rem;
   }
+  .pattern-left{
+    margin-top: 1650px;
+  }
 }
 
 @media screen and (max-width: 767px) {
+  .pattern-right{
+    margin-top: 750px;
+
+  }
+  .pattern-left{
+    margin-top: 1850px;
+  }
   .about-us-content {
     flex-direction: column;
   }

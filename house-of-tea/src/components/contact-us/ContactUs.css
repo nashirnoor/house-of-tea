@@ -74,7 +74,7 @@
  justify-content: center;
  padding: auto;
  width: 100%;
- row-gap:10px;
+ row-gap: 25px;
 }
 .contact-card {
   border-radius: 21px;
@@ -83,6 +83,7 @@
   width: 335px;
   height: 296px;
   padding: 2.5rem 2.5rem;
+  
   /* margin-left: auto;
     margin-right: auto; */
   display: flex;

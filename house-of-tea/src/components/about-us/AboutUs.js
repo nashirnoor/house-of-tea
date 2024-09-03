@@ -232,16 +232,10 @@ function AboutUs() {
           </Col>
         </Row>
           <Row>
-               
+             
             <Col sm={12} md={6}>
-              <div className="content-1-img-section">
-                <div className="pattern-right" style={{
-                marginLeft: 'auto',
-                backgroundImage: `url("${patternRight}")`,
-                transform: `translateY(-${trans}px)`,
-               
+               <div className="content-1-img-section">
                 
-              }}></div>
                 <Carousel pause={false}>
                   <Carousel.Item interval={2000}>
                     <div className="carousel-img-wrapper">
@@ -289,6 +283,7 @@ function AboutUs() {
                     </div>
                   </Carousel.Item>
                 </Carousel>
+
               </div>
             </Col>
 
@@ -301,7 +296,13 @@ function AboutUs() {
                   <p className="paras">{t("about.company_description")}</p>
                 </div>
                 
-              </div>
+              </div><div className="pattern-right" style={{
+                marginLeft: 'auto',
+                backgroundImage: `url("${patternRight}")`,
+                transform: `translateY(-${trans}px)`,
+               
+                
+              }}></div> 
             </Col>
             
           </Row>
