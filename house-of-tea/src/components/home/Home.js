@@ -159,7 +159,7 @@
 
 // export default Home;
 
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import contentimg1 from "../../assets/aboutus/W1.jpg";
 import contentimg2 from "../../assets/aboutus/w2.jpg";
@@ -181,24 +181,26 @@ import client4 from "../../assets/client-logo/image 23.png";
 import client5 from "../../assets/client-logo/image 24.png";
 import client6 from "../../assets/client-logo/image 25.png";
 import client7 from "../../assets/client-logo/image 26.png";
+import patternRight from "../../assets/patterns/pattern-right.svg";
+
 import VisionSection from "../vision/VisionSection";
 import { Link } from "react-router-dom";
 import ReviewForm from "../ReviewForm/ReviewForm";
 
 const clientImage = [
-  { img: client1, id: "11", name:'Thumama' },
-  { img: client1, id: "12", name:'Muaithar' },
-  { img: client2, id: "12" ,name:'Wakrah'},
-  { img: client3, id: "14" ,name:'Aziziya'},
-  { img: client4, id: "15" ,name:'Markhiya'},
-  { img: client5, id: "16" ,name:'Al Khor'},
-  { img: client6, id: "17" ,name:'Lekhdaira'},
-  { img: client7, id: "18" ,name:'Zubara'},
+  { img: client1, id: "11", name: 'Thumama' },
+  { img: client1, id: "12", name: 'Muaithar' },
+  { img: client2, id: "12", name: 'Wakrah' },
+  { img: client3, id: "14", name: 'Aziziya' },
+  { img: client4, id: "15", name: 'Markhiya' },
+  { img: client5, id: "16", name: 'Al Khor' },
+  { img: client6, id: "17", name: 'Lekhdaira' },
+  { img: client7, id: "18", name: 'Zubara' },
 ];
 
 function Home() {
   const { t } = useTranslation();
-
+  const [trans,setTrans]=useState(0)
   const settings = {
     infinite: true,
     slidesToShow: 3,
@@ -208,13 +210,20 @@ function Home() {
     autoplaySpeed: 5000,
     cssEase: "linear",
   };
-
+  useEffect(()=>{
+    window.addEventListener('scroll',()=>{
+    
+    setTrans(window.scrollY)
+  })
+  },[])
+  
+ 
   return (
     <motion.div
       initial={{ width: 0 }}
       animate={{ width: "100%" }}
       exit={{ x: window.innerWidth }}
-    >
+          >
       <div className="home">
         <div className="hero vid-div">
           <video autoPlay loop muted playsInline id="video">
@@ -239,9 +248,22 @@ function Home() {
           </div>
         </div>
 
-        <Container>
+        <Container >
           <Row>
-           <Col sm={12} md={6}>
+            <div style={{
+              marginLeft: 'auto',
+              marginTop:'600px',
+              width: '300px',
+              height: '350px',
+              backgroundImage: `url("${patternRight}")`,
+              backgroundRepeat:'no-repeat',
+              backgroundPositionX:'80px',
+              backgroundBlendMode: 'multiply',
+              position: 'absolute', left: '0px', right: '0px',
+              transform:`translateY(-${trans}px)`
+            }}>
+            </div>
+            <Col sm={12} md={6} style={{ zIndex: '1' }}>
               <div className="content-1-img-section">
                 <Carousel pause={false}>
                   <Carousel.Item interval={2000}>
@@ -318,14 +340,14 @@ function Home() {
             <div className="section-heading">
               <div className="heading-text">Take a look at our stores</div>
               <div className="heading-desc">
-              Find Your Ideal Ambiance
+                Find Your Ideal Ambiance
               </div>
             </div>
 
             <div className="client-slider">
               <Slider className="slider-css" {...settings}>
                 {clientImage.map((i) => (
-                  <div className="slider_client" key={i.id} style={{display:'flex', justifyContent:'center',alignItems:'center'}}>
+                  <div className="slider_client" key={i.id} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                     {/* <img src={i.img} alt="" /> */}
                     <h4>{i.name}</h4>
                   </div>
