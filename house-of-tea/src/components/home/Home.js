@@ -211,28 +211,16 @@ function Home() {
     cssEase: "linear",
   };
   const pageRef=useRef()
-  // useEffect(() => {
-    
-  //   pageRef.current.addEventListener('scroll',()=>{
-  //     console.log(pageRef.current.scrollY)
-  //   })
-  //   window.addEventListener('scroll', () => {
-  //     setTrans(window.scrollY)
-  //   })
-  // }, [])
   useEffect(() => {
-    const handleScroll = () => {
-      // Use document.documentElement.scrollTop for modern browsers
-      const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-    console.log(trans,document.documentElement.scrollTop , document.body.scrollTop)
-      setTrans(scrollTop);
-    };
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+    
+    pageRef.current.addEventListener('scroll',()=>{
+      console.log(pageRef.current.scrollY)
+    })
+    window.addEventListener('scroll', () => {
+      setTrans(window.scrollY)
+    })
+  }, [])
+  
 
 
   return (
