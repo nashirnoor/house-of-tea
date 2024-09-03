@@ -174,7 +174,7 @@
   z-index: 1;
   animation: fadeInDown 2s ease-in-out;
 }
-.pattern-about {
+.pattern-right {
   margin-left: auto !important;
   
   width: 500px;
@@ -188,6 +188,21 @@
   position: absolute;
   background-size: cover;
   
+  left: 0px;
+  right: 0px;
+}
+.pattern-left { 
+  width: 500px;
+  height: 550px;
+  background-repeat: no-repeat;
+  background-position-x: -240px;
+  background-position-y: 10px;
+  background-blend-mode: multiply;
+  /* background-position-y:-80px ; */
+  position: absolute;
+  background-size: cover;
+  margin-top: 1000px;
+  opacity:0.5;
   left: 0px;
   right: 0px;
 }

@@ -108,6 +108,7 @@ import Carousel from "react-bootstrap/Carousel";
 import { useTranslation } from "react-i18next";
 import ReviewForm from "../ReviewForm/ReviewForm";
 import patternRight from "../../assets/patterns/color-pattern-right.png";
+import patternLeft from "../../assets/patterns/color-pattern-left.svg";
 
 function AboutUs() {
   const { t } = useTranslation();
@@ -234,7 +235,7 @@ function AboutUs() {
                
             <Col sm={12} md={6}>
               <div className="content-1-img-section">
-                <div className="pattern-about" style={{
+                <div className="pattern-right" style={{
                 marginLeft: 'auto',
                 backgroundImage: `url("${patternRight}")`,
                 transform: `translateY(-${trans}px)`,
@@ -304,7 +305,12 @@ function AboutUs() {
             </Col>
             
           </Row>
-        </Container>
+          
+        </Container><div className="pattern-left" style={{
+                backgroundImage: `url("${patternLeft}")`,
+                transform: `translateY(-${trans}px)`,
+                backgroundBlendMode:'multiply',
+              }}></div>
     </motion.div>
   );
 }

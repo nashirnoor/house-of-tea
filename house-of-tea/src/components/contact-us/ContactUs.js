@@ -119,7 +119,7 @@ function ContactUs() {
       exit={{ x: window.innerWidth }}
     style={{backgroundColor:'black',color:'white'}}
     >
-      <Container>
+      <Container >
         <Row style={{ width: "100%" }}>
           <Col>
             <div className="banner8">
@@ -144,7 +144,7 @@ function ContactUs() {
             </div>
           </div>
         </Row>
-        <Row>
+        <Row className="contact-card-group">
           <Col>
             <div className="contact-card">
               <motion.div
