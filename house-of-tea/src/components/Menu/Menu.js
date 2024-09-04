@@ -1024,45 +1024,70 @@ const Menu = () => {
     console.log(selectedSize)
   }, [selectedSize])
   const handleSizeChange = (productId, size) => {
-    if (selectedSize[productId]) {
-      if (selectedSize[productId].includes(size)) {
-        selectedSize[productId].splice(selectedSize[productId].indexOf(size), 1)
-        setSelectedSize((prev) => ({ ...prev, [productId]: [...selectedSize[productId],] }));
-      } else
-        setSelectedSize((prev) => ({ ...prev, [productId]: [...selectedSize[productId], size] }));
-    }
-    else
-      setSelectedSize((prev) => ({ ...prev, [productId]: [size] }));
-
-
+    setSelectedSize((prev) => ({ ...prev, [productId]: size }));
   };
 
+  // const handleAddToCart = (product) => {
+  //   const selectedSizeForProduct = selectedSize[product.id];
+
+  //   if (product.sizes && product.sizes.length > 0) {
+  //     // Product has multiple sizes, check if size is selected
+  //     if (selectedSizeForProduct.length>0) {
+  //       const sizeDetails = product.sizes.filter(
+  //         (s) => selectedSizeForProduct.includes(s.size)
+  //       );
+  //       console.log(sizeDetails, selectedSizeForProduct)
+  //       if (sizeDetails) {
+
+  //         addToCart({
+  //           ...product,
+  //           selectedSize: selectedSizeForProduct,
+  //           price: product.sizes.filter(
+  //             obj => selectedSizeForProduct.includes(obj.size)
+  //           ).map(obj=>obj.price).reduce((sum, price) => {
+
+  //             return sum + price
+
+
+  //           })
+
+  //         });
+  //         setSelectedSize((prev) => ({ ...prev, [product.id]: [] }));
+  //         showToastMessage();
+  //       } else {
+  //         toast.error("Selected size is not available.", {
+  //           position: "bottom-right",
+  //           autoClose: 5000,
+  //         });
+  //       }
+  //     } else {
+  //       toast.error("Please select a size.", {
+  //         position: "bottom-right",
+  //         autoClose: 5000,
+  //       });
+  //     }
+  //   } else {
+  //     // Product does not have sizes, add directly
+  //     addToCart(product);
+  //     showToastMessage();
+  //   }
+  // };
   const handleAddToCart = (product) => {
     const selectedSizeForProduct = selectedSize[product.id];
 
     if (product.sizes && product.sizes.length > 0) {
       // Product has multiple sizes, check if size is selected
-      if (selectedSizeForProduct.length>0) {
-        const sizeDetails = product.sizes.filter(
-          (s) => selectedSizeForProduct.includes(s.size)
+      if (selectedSizeForProduct) {
+        const sizeDetails = product.sizes.find(
+          (s) => s.size === selectedSizeForProduct
         );
-        console.log(sizeDetails, selectedSizeForProduct)
         if (sizeDetails) {
-
           addToCart({
             ...product,
             selectedSize: selectedSizeForProduct,
-            price: product.sizes.filter(
-              obj => selectedSizeForProduct.includes(obj.size)
-            ).map(obj=>obj.price).reduce((sum, price) => {
-
-              return sum + price
-
-
-            })
-
+            price: sizeDetails.price,
           });
-          setSelectedSize((prev) => ({ ...prev, [product.id]: [] }));
+          setSelectedSize((prev) => ({ ...prev, [product.id]:'' }));
           showToastMessage();
         } else {
           toast.error("Selected size is not available.", {
@@ -1138,30 +1163,22 @@ const Menu = () => {
 
                   {!product.price ? (
                     <div className="size-options">
-                      {product.sizes.map((sizeOption) => (
-                        // <button
-                        //   key={sizeOption.size}
-                        //   className={`size-option ${selectedSize[product.id] === sizeOption.size
-                        //     ? "selected"
-                        //     : ""
-                        //     }`}
-                        //   onClick={() =>
-                        //     
-                        //   }
-                        // >
-                        //   {sizeOption.size} ({sizeOption.price.toFixed(2)} QR)
-                        // </button>
-                        <div style={{ display: 'flex', }}>
-                          <input type="checkbox" name="" id="" style={{ marginTop: 'auto', marginBottom: 'auto' }}
-                            checked={selectedSize.hasOwnProperty(product.id) && selectedSize[product.id].includes(sizeOption.size)}
-                            
-                            onChange={() => {
-                              handleSizeChange(product.id, sizeOption.size)
-                            }} />
-                          <p style={{ alignItems: 'center', marginTop: 'auto', marginBottom: 'auto' }}>{sizeOption.size}  ({sizeOption.price.toFixed(2)} QR)</p>
-                        </div>
-                      ))}
-                    </div>
+                    {product.sizes.map((sizeOption) => (
+                      <button
+                        key={sizeOption.size}
+                        className={`size-option ${
+                          selectedSize[product.id] === sizeOption.size
+                            ? "selected"
+                            : ""
+                        }`}
+                        onClick={() =>
+                          handleSizeChange(product.id, sizeOption.size)
+                        }
+                      >
+                        {sizeOption.size} ({sizeOption.price.toFixed(2)} QR)
+                      </button>
+                    ))}
+                  </div>
                   ) : (
                     <p className="product-price">
                       Price: {product.price.toFixed(2)} QR

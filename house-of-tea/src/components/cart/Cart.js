@@ -285,22 +285,13 @@ const Cart = () => {
                   />
                   <div className="cart-item-details">
                     <h3>
-                      {t(`Products.${item.name}`)}
+                      {item.name}
                       { }
                     </h3>
-                    {item.sizes && (
-                      <div className="cart-item-size" style={{ paddingLeft: '5px' }}>
-                        {item.sizes.map(e => {
-                          console.log('include',item.selectedSize.includes(e.size))
-                          return (
-                            <div style={{ display: 'flex' }}>
-                              <input type="checkbox" checked={item.selectedSize.includes(e.size)}
-                                onChange={()=>updateSize(index,e)}
-                              /> 
-                              <p>{e.size} ({e.price?.toFixed(2)}QR)</p>
-                            </div>)
-                        })}
-                      </div>
+                    {item.selectedSize && (
+                      <p className="cart-item-size">
+                        Size: {item.selectedSize}
+                      </p>
                     )}
 
                     <div
