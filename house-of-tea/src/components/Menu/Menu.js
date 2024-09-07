@@ -928,11 +928,11 @@ const Menu = () => {
   const [loading, setLoading] = useState(true)
   const [sidebarVisible, setSidebarVisible] = useState(true);
   const [productData, setProductData] = useState({})
-  
+
   const [sortValue, setSort] = useState('default');
-  useEffect(()=>{
-     
-    if (!loading&&sortValue === 'price-low') {
+  useEffect(() => {
+
+    if (!loading && sortValue === 'price-low') {
       productData[selectedCategory].sort((a, b) => {
         if (!a.price) {
 
@@ -950,7 +950,7 @@ const Menu = () => {
         return a.price - b.price
       })
     }
-    else if (!loading&&sortValue === 'price-high') {
+    else if (!loading && sortValue === 'price-high') {
       productData[selectedCategory].sort((a, b) => {
         if (!a.price) {
 
@@ -958,23 +958,25 @@ const Menu = () => {
             return Math.max(...b.sizes.map(el => el.price)) - Math.max(...a.sizes.map(el => el.price))
           }
           console.log(Math.max(...a.sizes.map(el => el.price)) - b.price)
-          return   b.price-Math.max(...a.sizes.map(el => el.price))
+          return b.price - Math.max(...a.sizes.map(el => el.price))
         }
         console.log(a, b)
         if (b.sizes) {
-          return   Math.max(...b.sizes.map(el => el.price))-a.price
+          return Math.max(...b.sizes.map(el => el.price)) - a.price
         }
         return b.price - a.price
       })
-    }else if (!loading){
-      
-      productData[selectedCategory].sort((a,b)=>{if(a.name < b.name) { return -1; }
-      if(a.name > b.name) { return 1; }
-      return 0;})
-      
+    } else if (!loading) {
+
+      productData[selectedCategory].sort((a, b) => {
+        if (a.name < b.name) { return -1; }
+        if (a.name > b.name) { return 1; }
+        return 0;
+      })
+
     }
-      setProductData({ ...productData })
-  },[sortValue])
+    setProductData({ ...productData })
+  }, [sortValue])
   useEffect(() => {
     setLoading(true)
     let data = {}
@@ -990,10 +992,12 @@ const Menu = () => {
           e.products[idx].image = baseUrl() + e.products[idx].image
 
         })
-        
-        data[e.name] = [...e.products.sort((a,b)=>{if(a.name < b.name) { return -1; }
-          if(a.name > b.name) { return 1; }
-          return 0;})]
+
+        data[e.name] = [...e.products.sort((a, b) => {
+          if (a.name < b.name) { return -1; }
+          if (a.name > b.name) { return 1; }
+          return 0;
+        })]
       })
       setSort('default')
       setProductData({ ...data })
@@ -1048,7 +1052,7 @@ const Menu = () => {
           addToCart({
             ...product,
             selectedSize: selectedSizeForProduct,
-            selectedSizeAr:sizeDetails.size_ar,
+            selectedSizeAr: sizeDetails.size_ar,
             price: sizeDetails.price,
           });
           setSelectedSize((prev) => ({ ...prev, [product.id]: '' }));
@@ -1075,11 +1079,11 @@ const Menu = () => {
   const currentProduct = productData[selectedCategory]?.find(
     (p) => p.id === selectedProduct
   );
-  
+
 
   const onSortChange = (e) => {
     setSort(e.target.value)
-    
+
 
   }
   return (
@@ -1111,11 +1115,11 @@ const Menu = () => {
         <h2 className="category-title">{loading && !sidebarVisible ? 'loading..' : selectedCategory}</h2>
         <div className="sort-section">
           <p>sort:</p>
-        <select className="sort-selection" name="" id="" onChange={onSortChange} value={sortValue}>
-          <option value="default">select option</option>
-          <option value="price-low">low price</option>
-          <option value="price-high">high price</option>
-        </select></div>
+          <select className="sort-selection" name="" id="" onChange={onSortChange} value={sortValue}>
+            <option value="default">select option</option>
+            <option value="price-low">low price</option>
+            <option value="price-high">high price</option>
+          </select></div>
         {loading ?
           <p style={{ textAlign: 'center', width: '100%', margin: 'auto' }}>loading...</p>
           :
