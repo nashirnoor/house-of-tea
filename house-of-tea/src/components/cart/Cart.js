@@ -8,7 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { useTranslation } from "react-i18next";
 
 const Cart = () => {
-  const { t } = useTranslation();
+  const { t,i18n } = useTranslation();
 
   const { getCartItems, removeFromCart, updateQuantity, clearCart,updateSize } =
     useContext(CartContext);
@@ -285,12 +285,12 @@ const Cart = () => {
                   />
                   <div className="cart-item-details">
                     <h3>
-                      {item.name}
+                      {i18n.language==='ar'&&item.name_ar?item.name_ar:item.name}
                       { }
                     </h3>
                     {item.selectedSize && (
                       <p className="cart-item-size">
-                        Size: {item.selectedSize}
+                        Size: {i18n.language==='ar'&&item.selectedSizeAr?item.selectedSizeAr:item.selectedSize}
                       </p>
                     )}
 

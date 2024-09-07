@@ -928,13 +928,57 @@ const Menu = () => {
   const [loading, setLoading] = useState(true)
   const [sidebarVisible, setSidebarVisible] = useState(true);
   const [productData, setProductData] = useState({})
-  const [trans, setTrans] = useState(0)
   
+  const [sortValue, setSort] = useState('default');
+  useEffect(()=>{
+     
+    if (!loading&&sortValue === 'price-low') {
+      productData[selectedCategory].sort((a, b) => {
+        if (!a.price) {
 
+          if (!b.price) {
+            console.log('min', Math.min(...a.sizes.map(el => el.price)), Math.min(...b.sizes.map(el => el.price)))
+            return Math.min(...a.sizes.map(el => el.price)) - Math.min(...b.sizes.map(el => el.price))
+          }
+          console.log(Math.min(...a.sizes.map(el => el.price)) - b.price)
+          return Math.min(...a.sizes.map(el => el.price)) - b.price
+        }
+        console.log(a, b)
+        if (b.sizes) {
+          return a.price - Math.min(...b.sizes.map(el => el.price))
+        }
+        return a.price - b.price
+      })
+    }
+    else if (!loading&&sortValue === 'price-high') {
+      productData[selectedCategory].sort((a, b) => {
+        if (!a.price) {
+
+          if (!b.price) {
+            return Math.max(...b.sizes.map(el => el.price)) - Math.max(...a.sizes.map(el => el.price))
+          }
+          console.log(Math.max(...a.sizes.map(el => el.price)) - b.price)
+          return   b.price-Math.max(...a.sizes.map(el => el.price))
+        }
+        console.log(a, b)
+        if (b.sizes) {
+          return   Math.max(...b.sizes.map(el => el.price))-a.price
+        }
+        return b.price - a.price
+      })
+    }else if (!loading){
+      
+      productData[selectedCategory].sort((a,b)=>{if(a.name < b.name) { return -1; }
+      if(a.name > b.name) { return 1; }
+      return 0;})
+      
+    }
+      setProductData({ ...productData })
+  },[sortValue])
   useEffect(() => {
     setLoading(true)
     let data = {}
-    console.log(baseUrl(),i18n.language)
+    console.log(baseUrl(), i18n.language)
     fetch(baseUrl() + '/products/menu', { headers: { 'Accept-Language': i18n.language } }).then(function (a) {
       return a.json();
     }).then((res) => {
@@ -946,8 +990,12 @@ const Menu = () => {
           e.products[idx].image = baseUrl() + e.products[idx].image
 
         })
-        data[e.name] = [...e.products]
+        
+        data[e.name] = [...e.products.sort((a,b)=>{if(a.name < b.name) { return -1; }
+          if(a.name > b.name) { return 1; }
+          return 0;})]
       })
+      setSort('default')
       setProductData({ ...data })
       setSelectedCategory(Object.keys(data)[0])
       setLoading(false)
@@ -979,46 +1027,6 @@ const Menu = () => {
     setSidebarVisible((prev) => !prev);
   }, []);
 
-  // const handleAddToCart = useCallback(
-  //   (product) => {
-  //     if (selectedSize && product.sizes) {
-  //       const sizeDetails = product.sizes.find((s) => s.size === selectedSize);
-  //       if (sizeDetails) {
-  //         addToCart({ ...product, selectedSize, price: sizeDetails.price });
-  //         showToastMessage();
-  //       } else {
-  //         toast.error(t("Menu.size_not_found"));
-  //       }
-  //     } else {
-  //       toast.error(t("Menu.select_size"));
-  //     }
-  //   },
-  //   [addToCart, showToastMessage, selectedSize, t]
-  // );
-
-  // const handleAddToCart = useCallback(
-  //   (product) => {
-  //     if (product.sizes) {
-  //       // If the product has sizes, check if a size is selected
-  //       if (selectedSize) {
-  //         const sizeDetails = product.sizes.find((s) => s.size === selectedSize);
-  //         if (sizeDetails) {
-  //           addToCart({ ...product, selectedSize, price: sizeDetails.price });
-  //           showToastMessage();
-  //         } else {
-  //           toast.error(t("Menu.size_not_found"));
-  //         }
-  //       } else {
-  //         toast.error(t("Menu.select_size"));
-  //       }
-  //     } else {
-  //       // If the product does not have sizes, add it directly
-  //       addToCart(product);
-  //       showToastMessage();
-  //     }
-  //   },
-  //   [addToCart, showToastMessage, selectedSize, t]
-  // );
   const [selectedSize, setSelectedSize] = useState({});
   useEffect(() => {
     console.log(selectedSize)
@@ -1027,51 +1035,6 @@ const Menu = () => {
     setSelectedSize((prev) => ({ ...prev, [productId]: size }));
   };
 
-  // const handleAddToCart = (product) => {
-  //   const selectedSizeForProduct = selectedSize[product.id];
-
-  //   if (product.sizes && product.sizes.length > 0) {
-  //     // Product has multiple sizes, check if size is selected
-  //     if (selectedSizeForProduct.length>0) {
-  //       const sizeDetails = product.sizes.filter(
-  //         (s) => selectedSizeForProduct.includes(s.size)
-  //       );
-  //       console.log(sizeDetails, selectedSizeForProduct)
-  //       if (sizeDetails) {
-
-  //         addToCart({
-  //           ...product,
-  //           selectedSize: selectedSizeForProduct,
-  //           price: product.sizes.filter(
-  //             obj => selectedSizeForProduct.includes(obj.size)
-  //           ).map(obj=>obj.price).reduce((sum, price) => {
-
-  //             return sum + price
-
-
-  //           })
-
-  //         });
-  //         setSelectedSize((prev) => ({ ...prev, [product.id]: [] }));
-  //         showToastMessage();
-  //       } else {
-  //         toast.error("Selected size is not available.", {
-  //           position: "bottom-right",
-  //           autoClose: 5000,
-  //         });
-  //       }
-  //     } else {
-  //       toast.error("Please select a size.", {
-  //         position: "bottom-right",
-  //         autoClose: 5000,
-  //       });
-  //     }
-  //   } else {
-  //     // Product does not have sizes, add directly
-  //     addToCart(product);
-  //     showToastMessage();
-  //   }
-  // };
   const handleAddToCart = (product) => {
     const selectedSizeForProduct = selectedSize[product.id];
 
@@ -1085,9 +1048,10 @@ const Menu = () => {
           addToCart({
             ...product,
             selectedSize: selectedSizeForProduct,
+            selectedSizeAr:sizeDetails.size_ar,
             price: sizeDetails.price,
           });
-          setSelectedSize((prev) => ({ ...prev, [product.id]:'' }));
+          setSelectedSize((prev) => ({ ...prev, [product.id]: '' }));
           showToastMessage();
         } else {
           toast.error("Selected size is not available.", {
@@ -1111,7 +1075,13 @@ const Menu = () => {
   const currentProduct = productData[selectedCategory]?.find(
     (p) => p.id === selectedProduct
   );
+  
 
+  const onSortChange = (e) => {
+    setSort(e.target.value)
+    
+
+  }
   return (
     <div className="menu-container">
       <ToastContainer />
@@ -1139,6 +1109,13 @@ const Menu = () => {
 
       <div className={`content ${!sidebarVisible ? "expanded" : ""}`}>
         <h2 className="category-title">{loading && !sidebarVisible ? 'loading..' : selectedCategory}</h2>
+        <div className="sort-section">
+          <p>sort:</p>
+        <select className="sort-selection" name="" id="" onChange={onSortChange} value={sortValue}>
+          <option value="default">select option</option>
+          <option value="price-low">low price</option>
+          <option value="price-high">high price</option>
+        </select></div>
         {loading ?
           <p style={{ textAlign: 'center', width: '100%', margin: 'auto' }}>loading...</p>
           :
@@ -1163,22 +1140,21 @@ const Menu = () => {
 
                   {!product.price ? (
                     <div className="size-options">
-                    {product.sizes.map((sizeOption) => (
-                      <button
-                        key={sizeOption.size}
-                        className={`size-option ${
-                          selectedSize[product.id] === sizeOption.size
+                      {product.sizes.map((sizeOption) => (
+                        <button
+                          key={sizeOption.size}
+                          className={`size-option ${selectedSize[product.id] === sizeOption.size
                             ? "selected"
                             : ""
-                        }`}
-                        onClick={() =>
-                          handleSizeChange(product.id, sizeOption.size)
-                        }
-                      >
-                        {sizeOption.size} ({sizeOption.price.toFixed(2)} QR)
-                      </button>
-                    ))}
-                  </div>
+                            }`}
+                          onClick={() =>
+                            handleSizeChange(product.id, sizeOption.size)
+                          }
+                        >
+                          {sizeOption.size} ({sizeOption.price.toFixed(2)} QR)
+                        </button>
+                      ))}
+                    </div>
                   ) : (
                     <p className="product-price">
                       Price: {product.price.toFixed(2)} QR

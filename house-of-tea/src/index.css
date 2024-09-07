@@ -39,6 +39,7 @@ html {
   left: 0;
   width: 100%; /* Ensure the element fills the container */
 }
+
 ul{
   list-style-type: none;
 }

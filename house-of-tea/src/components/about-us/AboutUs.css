@@ -335,4 +335,15 @@
   font-style: normal;
   font-weight: 400;
   text-transform: capitalize;
+  animation:  fadeInLeft 2s ease-in-out;
+}
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }

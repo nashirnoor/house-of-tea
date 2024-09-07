@@ -168,7 +168,7 @@ import contentimg4 from "../../assets/aboutus/w4.jpg";
 import contentimg5 from "../../assets/teaimages/teimage3.jpg";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import Slider from "react-slick";
 import "./Home.css";
 import Carousel from "react-bootstrap/Carousel";
@@ -186,6 +186,7 @@ import patternRight from "../../assets/patterns/color-pattern-right.png";
 import VisionSection from "../vision/VisionSection";
 import { Link } from "react-router-dom";
 import ReviewForm from "../ReviewForm/ReviewForm";
+import Map from "./Map/Map";
 
 const clientImage = [
   { img: client1, id: "11", name: 'Thumama' },
@@ -201,6 +202,13 @@ const clientImage = [
 function Home() {
   const { t } = useTranslation();
   const [trans, setTrans] = useState(0)
+  const ref = useRef(null);
+  const isInView = useInView(ref);
+
+  const animationVariants = {
+    hidden: { opacity: 0, x: 50 },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.5 } }
+  };
   const settings = {
     infinite: true,
     slidesToShow: 3,
@@ -210,30 +218,30 @@ function Home() {
     autoplaySpeed: 5000,
     cssEase: "linear",
   };
-  const pageRef=useRef()
+  const pageRef = useRef()
   useEffect(() => {
-    
-    pageRef.current.addEventListener('scroll',()=>{
+
+    pageRef.current.addEventListener('scroll', () => {
       console.log(pageRef.current.scrollY)
     })
     window.addEventListener('scroll', () => {
       setTrans(window.scrollY)
     })
   }, [])
-  
+
 
 
   return (
     <motion.div
-    ref={pageRef}
-    
+      ref={pageRef}
+
       initial={{ width: 0 }}
       animate={{ width: "100%" }}
       exit={{ x: window.innerWidth }}
     >
       <div className="home">
         <div className="hero vid-div">
-          <video autoPlay loop muted playsInline id="video">
+          <video autoPlay loop muted playsInline id="video" >
             <source src={video2} type="video/mp4" />
           </video>
           <div className="overlay10"></div>
@@ -315,9 +323,11 @@ function Home() {
                 <div className="content-1-details">
                   <h1 className="heading">{t("home.about_the_company")}</h1>
                 </div>
-                <div className="content-1-details">
-                  <p className="para">{t("home.company_description")}</p>
-                </div>
+                
+                <motion.div className="content-1-details" ref={ref} variants={animationVariants} initial="hidden" animate={isInView ? "visible" : "hidden"}>
+                  <p className="para" style={{}}>{t("home.company_description")}</p>
+                  </motion.div>
+                 
                 <div className="content-1-details">
                   <Link to={"aboutus"}>
                     <button className="content-btn">
@@ -330,7 +340,7 @@ function Home() {
                 marginLeft: 'auto',
                 backgroundImage: `url("${patternRight}")`,
                 transform: `translateY(-${trans}px)`,
-                
+
               }}>
               </div>
             </Col>
@@ -345,30 +355,23 @@ function Home() {
                 Find Your Ideal Ambiance
               </div>
             </div>
-
-            <div className="client-slider">
-              <Slider className="slider-css" {...settings}>
-                {clientImage.map((i) => (
-                  <div className="slider_client" key={i.id} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                    {/* <img src={i.img} alt="" /> */}
-                    <h4>{i.name}</h4>
-                  </div>
-                ))}
-              </Slider>
+            <div className="map-section" >
+              <Map />
             </div>
+
           </div>
         </div>
 
         {/* <Certification /> */}
       </div>
       <div className="pattern-footer" style={{
-                marginLeft: 'auto',
-                backgroundImage: `url("${patternRight}")`,
-                transform: `translateY(-${trans}px)`,
-                
-              }}></div>
+        marginLeft: 'auto',
+        backgroundImage: `url("${patternRight}")`,
+        transform: `translateY(-${trans}px)`,
+
+      }}></div>
     </motion.div>
-    
+
   );
 }
 

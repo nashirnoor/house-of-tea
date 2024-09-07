@@ -166,8 +166,22 @@
   font-weight: bold;
   color: grey; 
 }
+.sort-section{
+  margin-left: auto;
+  display: flex;
 
-
+}
+.sort-section p{
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: auto;
+  display: flex;
+  font-weight: bold;
+  padding-left: 2px;
+}
+.sort-selection{
+  width: 150px;
+}
 .add-to-cart-btn {
   background-color: #16a085;
   color: #fff;
