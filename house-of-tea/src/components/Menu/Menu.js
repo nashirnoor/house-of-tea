@@ -1116,8 +1116,8 @@ const Menu = () => {
           {/* <p>Select Price Variant:</p> */}
           <select className="sort-selection select" aria-placeholder="Select Price Variant"  name="" id="" onChange={onSortChange} value={sortValue}>
             <option value="default" >Select Price Variant</option>
-            <option value="price-low">low price</option>
-            <option value="price-high">high price</option>
+            <option value="price-low">Low Price</option>
+            <option value="price-high">High Price</option>
           </select></div>
         {loading ?
           <p style={{ textAlign: 'center', width: '100%', margin: 'auto' }}>loading...</p>
