@@ -1013,12 +1013,12 @@ const Menu = () => {
 
   const isMobileView = () => window.innerWidth <= 768;
 
-  const showToastMessage = useCallback(() => {
+  const showToastMessage = () => {
     toast.success(t("Menu.product_added"), {
       position: "bottom-right",
       autoClose: 5000,
     });
-  }, [t]);
+  }
 
   const handleMenuClick = useCallback((category) => {
     setSelectedCategory(category);
