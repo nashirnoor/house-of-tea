@@ -8,9 +8,9 @@ import "react-toastify/dist/ReactToastify.css";
 import { useTranslation } from "react-i18next";
 
 const Cart = () => {
-  const { t,i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
 
-  const { getCartItems, removeFromCart, updateQuantity, clearCart,updateSize } =
+  const { getCartItems, removeFromCart, updateQuantity, clearCart, updateSize } =
     useContext(CartContext);
   const cartItems = getCartItems();
   const [location, setLocation] = useState(null);
@@ -36,51 +36,51 @@ const Cart = () => {
 
   const storeLocations = [
     {
-      name: "Thumama",
-      latitude: 41.684769,
-      longitude: -71.374588,
+      name: "Thumama ",
+      latitude: 25.222438996740422,
+      longitude: 51.550536562514615,
       whatsappNumber: "+97431235757",
     },
     {
-      name: "Muaithar  ",
-      latitude: 41.68477,
-      longitude: -71.37459,
+      name: "Muaithar ",
+      latitude: 25.29572332548531,
+      longitude: 51.407174985912846,
       whatsappNumber: "+97431462211",
     },
     {
       name: "Wakrah ",
-      latitude: 41.684769,
-      longitude: -71.374588,
+      latitude: 25.200882610390817,
+      longitude: 51.588306019650865,
       whatsappNumber: "+97431366767",
     },
     {
       name: " Aziziya",
-      latitude: 25.2526,
-      longitude: 51.4467,
+      latitude: 25.245825444089515,
+      longitude: 51.446762153624036,
       whatsappNumber: "+97474410010",
     },
     {
       name: "Markhiya ",
-      latitude: 25.3388,
-      longitude: 51.4992,
+      latitude: 25.338296672621958,
+      longitude: 51.491324118099705,
       whatsappNumber: "+97477298787",
     },
     {
       name: "Al Khor ",
-      latitude: 25.6839,
-      longitude: 51.5017,
+      latitude: 25.67683018797721,
+      longitude: 51.50235561004744,
       whatsappNumber: "+97470377366",
     },
     {
       name: "Lekhdaira ",
-      latitude: 25.8396,
-      longitude: 51.3662,
+      latitude: 25.84792563866012,
+      longitude: 51.350088871164644,
       whatsappNumber: "+97477289797",
     },
     {
       name: "Zubara ",
-      latitude: 25.977,
-      longitude: 51.0455,
+      latitude: 25.825738803487717,
+      longitude: 51.34830822276559,
       whatsappNumber: "+97470602132",
     },
   ];
@@ -175,7 +175,7 @@ const Cart = () => {
     );
 
     const locationMessage = location
-      ? `\n\nCustomer Location: https://maps.google.com/?q=${location.latitude},${location.longitude}`
+      ? `\n\n\n Customer Location: https://maps.google.com/?q=${location.latitude},${location.longitude}`
       : "";
 
     const sendMessage = (locationMessage) => {
@@ -199,7 +199,7 @@ const Cart = () => {
             );
             setDistance(calculatedDistance);
           }
-          const locationMessage = `\n\nCustomer Location: https://maps.google.com/?q=${latitude},${longitude}`;
+          const locationMessage = `\n\n\n Customer Location: https://maps.google.com/?q=${latitude},${longitude}`;
           sendMessage(locationMessage);
         },
         (error) => {
@@ -285,12 +285,12 @@ const Cart = () => {
                   />
                   <div className="cart-item-details">
                     <h3>
-                      {i18n.language==='ar'&&item.name_ar?item.name_ar:item.name}
+                      {i18n.language === 'ar' && item.name_ar ? item.name_ar : item.name}
                       { }
                     </h3>
                     {item.selectedSize && (
                       <p className="cart-item-size">
-                        Size: {i18n.language==='ar'&&item.selectedSizeAr?item.selectedSizeAr:item.selectedSize}
+                        Size: {i18n.language === 'ar' && item.selectedSizeAr ? item.selectedSizeAr : item.selectedSize}
                       </p>
                     )}
 
