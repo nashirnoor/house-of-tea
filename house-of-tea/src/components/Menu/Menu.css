@@ -83,7 +83,7 @@
 }
 
 .category-title{
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 .product-grid {
   display: grid;
@@ -94,6 +94,7 @@
 .product-card {
   background: #000000;
   border: 1px solid #ddd;
+  width:350px;
   border-radius: 8px;
   text-align: center;
   overflow: hidden;
@@ -131,9 +132,9 @@
 }
 .size-options {
   display: flex;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   gap: 10px;
-  margin-top: 10px;
+  margin: 10px;
   justify-content: center;
 }
 
@@ -169,13 +170,11 @@
 .sort-section{
   margin-left: 5px;
   display: flex;
-  margin-bottom: 5px;
+  margin-bottom: 15px;
 }
 .sort-section p{
   margin-top: auto;
   margin-bottom: auto;
- 
- 
   font-weight: bold;
   padding-left: 2px;
 }

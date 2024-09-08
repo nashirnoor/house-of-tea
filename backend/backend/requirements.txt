@@ -3,3 +3,5 @@ django-cors-headers==4.4.0
 django-environ==0.11.2
 djangorestframework==3.15.2
 pillow==10.4.0
+googletrans==3.1.0a0
+translate==3.6.1

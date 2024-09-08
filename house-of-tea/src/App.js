@@ -28,9 +28,12 @@ function App() {
 
   return (
     <CartProvider>
-      <div className={"cursor"} style={{ top: (cord.y - 5) + 'px', left: (cord.x - 5) + 'px' }} onClick={() => {
+      <div className={"cursor"} style={{ top: (cord.y - 14) + 'px', left: (cord.x -10) + 'px' }} onClick={() => {
         console.log('clicked cursor')
-      }}></div>
+      }}>
+        <div style={{marginLeft:'10px'}}></div>
+        <div ></div>
+      </div>
       <BrowserRouter>
 
         <Navbar />

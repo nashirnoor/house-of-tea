@@ -3,15 +3,48 @@ import mapPlane from '../../../assets/maps/plane.png'
 import locationIcon from '../../../assets/maps/location-icon.svg'
 import './Map.css'
 function Map() {
-    const Links = {
-        muaithar: "https://www.google.com/maps/place/HOUSE+OF+TEA/@25.355373,50.6600526,9z/data=!4m10!1m2!2m1!1sHOUSE+OF+TEA+Muaithar!3m6!1s0x3e45d939182cdc47:0x399fd199a76007df!8m2!3d25.293401!4d51.4070046!15sChVIT1VTRSBPRiBURUEgTXVhaXRoYXJaFyIVaG91c2Ugb2YgdGVhIG11YWl0aGFykgEKcmVzdGF1cmFudJoBJENoZERTVWhOTUc5blMwVkpRMEZuU1VOWE1VOUxWaTEzUlJBQuABAA!16s%2Fg%2F11c52qwy_q?entry=ttu&g_ep=EgoyMDI0MDkwNC4wIKXMDSoASAFQAw%3D%3D",
-        thummam: 'https://maps.app.goo.gl/jsgAMSbS9ipAPR1C6',
-        wakrah: 'https://maps.app.goo.gl/jsgAMSbS9ipAPR1C6',
-        aziziya: 'https://maps.app.goo.gl/jsgAMSbS9ipAPR1C6',
-        markhiya: 'https://maps.app.goo.gl/jsgAMSbS9ipAPR1C6',
-        alkhor: 'https://maps.app.goo.gl/jsgAMSbS9ipAPR1C6',
-        lekhdaira: 'https://maps.app.goo.gl/jsgAMSbS9ipAPR1C6',
-        zubara: 'https://maps.app.goo.gl/jsgAMSbS9ipAPR1C6',
+
+    const stores = {
+        muaither: {
+            link: `https://maps.google.com/?q=25.294244456018994, 51.40628477528957`,
+            latitude: 25.295269686055743,
+            longitude: 51.407329540958074,
+        },
+        thummam: {
+            link: `https://maps.google.com/?q=25.223198511126594,51.550737566976615`,
+            latitude: 25.223198511126594,
+            longitude: 51.550737566976615,
+        },
+        wakrah: {
+            link: `https://maps.google.com/?q=25.18768586365982,51.59176834986675`,
+            latitude: 25.18768586365982,
+            longitude: 51.59176834986675,
+        },
+        aziziya: {
+            link: `https://maps.google.com/?q=25.242423543157976,51.445581911144295`,
+            latitude:25.242423543157976,
+            longitude: 51.445581911144295,
+        },
+        markhiya: {
+            link: `https://maps.google.com/?q=25.334634626154354,51.49219992637035`,
+            latitude: 25.334634626154354,
+            longitude: 51.49219992637035,
+        },
+        alkhor: {
+            link: `https://maps.google.com/?q=25.677276691025067, 51.49961055615182`,
+            latitude: 25.677871049539338,
+            longitude: 51.499886543890824
+        },
+        lekhdaira: {
+            link: `https://maps.google.com/?q=25.848044483965282, 51.35018905664213`,
+            latitude: 25.8485658540304,
+            longitude: 51.35033394395309,
+        },
+        zubara: {
+            link: `https://maps.google.com/?q=25.822356695807937, 51.34916372295754`,
+            latitude: 25.82621246701662,
+            longitude: 51.350362474361766,
+        },
 
 
     }
@@ -20,39 +53,39 @@ function Map() {
             <image href={mapPlane} x="0" y="0" width="100%" height="100%" />
 
 
-            <image className='location' href={locationIcon} x="630" y="590" style={{ cursor: 'pointer' }} onClick={() => window.open(Links.thummam, "_blank")}></image>
-            <text className='location' x="590" y="600" fill="black" font-size="12" font-weight="bold" style={{ cursor: 'pointer' }} onClick={() => window.open(Links.thummam, "_blank")} >Thumama</text>
+            <image className='location' href={locationIcon} x="630" y="590" style={{ cursor: 'pointer' }} onClick={() => window.open(stores.thummam.link, "_blank")}></image>
+            <text className='location' x="590" y="600" fill="black" font-size="12" font-weight="bold" style={{ cursor: 'pointer' }} onClick={() => window.open(stores.thummam.link, "_blank")} >Thumama</text>
 
 
-            <image href={locationIcon} x="630" y="530" style={{ cursor: 'pointer' }} onClick={() => window.open(Links.muaithar, '_blank')}></image>
-            <text x="640" y="540" fill="black" font-size="12" font-weight="bold" style={{ cursor: 'pointer' }} onClick={() => window.open(Links.muaithar, '_blank')}>Muaithar</text>
+            <image href={locationIcon} x="630" y="530" style={{ cursor: 'pointer' }} onClick={() => window.open(stores.muaither.link, '_blank')}></image>
+            <text x="640" y="540" fill="black" font-size="12" font-weight="bold" style={{ cursor: 'pointer' }} onClick={() => window.open(stores.muaither.link, '_blank')}>Muaither</text>
 
 
-            <image href={locationIcon} x="610" y="630" style={{ cursor: 'pointer' }} onClick={() => window.open(Links.wakrah, '_blank')}></image>
-            <text x="590" y="630" fill="black" font-size="12" font-weight="bold" style={{ cursor: 'pointer' }} onClick={() => window.open(Links.wakrah, '_blank')}>Wakrah</text>
+            <image href={locationIcon} x="610" y="630" style={{ cursor: 'pointer' }} onClick={() => window.open(stores.wakrah.link, '_blank')}></image>
+            <text x="590" y="630" fill="black" font-size="12" font-weight="bold" style={{ cursor: 'pointer' }} onClick={() => window.open(stores.wakrah.link, '_blank')}>Wakrah</text>
 
 
 
-            <image href={locationIcon} x="620" y="560" style={{ cursor: 'pointer' }} onClick={() => window.open(Links.aziziya, '_blank')}></image>
+            <image href={locationIcon} x="620" y="560" style={{ cursor: 'pointer' }} onClick={() => window.open(stores.aziziya.link, '_blank')}></image>
 
-            <text x="620" y="560" fill="black" font-size="12" font-weight="bold" style={{ cursor: 'pointer' }} onClick={() => window.open(Links.aziziya, '_blank')}>Aziziya</text>
-
-
-            <image href={locationIcon} x="670" y="560" style={{ cursor: 'pointer' }} onClick={() => window.open(Links.markhiya, '_blank')}></image>
-
-            <text x="670" y="560" fill="black" font-size="12" font-weight="bold" style={{ cursor: 'pointer' }} onClick={() => window.open(Links.markhiya, '_blank')}>Markhiya</text>
-
-            <image href={locationIcon} x="810" y="500" style={{ cursor: 'pointer' }} onClick={() => window.open(Links.alkhor, '_blank')}></image>
-
-            <text x="820" y="510" fill="black" font-size="12" font-weight="bold" style={{ cursor: 'pointer' }} onClick={() => window.open(Links.alkhor, '_blank')}>Al Khor</text>
+            <text x="620" y="560" fill="black" font-size="12" font-weight="bold" style={{ cursor: 'pointer' }} onClick={() => window.open(stores.aziziya.link, '_blank')}>Aziziya</text>
 
 
-            <image href={locationIcon} x="840" y="410" style={{ cursor: 'pointer' }} onClick={() => window.open(Links.lekhdaira, '_blank')}></image>
-            <text x="850" y="420" fill="black" font-size="12" font-weight="bold" style={{ cursor: 'pointer' }} onClick={() => window.open(Links.lekhdaira, '_blank')}>Lekhdaira</text>
+            <image href={locationIcon} x="670" y="560" style={{ cursor: 'pointer' }} onClick={() => window.open(stores.markhiya.link, '_blank')}></image>
 
-            <image href={locationIcon} x="790" y="410" style={{ cursor: 'pointer' }} onClick={() => window.open(Links.zubara, '_blank')}></image>
+            <text x="670" y="560" fill="black" font-size="12" font-weight="bold" style={{ cursor: 'pointer' }} onClick={() => window.open(stores.markhiya.link, '_blank')}>Markhiya</text>
 
-            <text x="800" y="420" fill="black" font-size="12" font-weight="bold" style={{ cursor: 'pointer' }} onClick={() => window.open(Links.zubara, '_blank')}>Zubara</text>
+            <image href={locationIcon} x="810" y="500" style={{ cursor: 'pointer' }} onClick={() => window.open(stores.alkhor.link, '_blank')}></image>
+
+            <text x="820" y="510" fill="black" font-size="12" font-weight="bold" style={{ cursor: 'pointer' }} onClick={() => window.open(stores.alkhor.link, '_blank')}>Al Khor</text>
+
+
+            <image href={locationIcon} x="840" y="410" style={{ cursor: 'pointer' }} onClick={() => window.open(stores.lekhdaira.link, '_blank')}></image>
+            <text x="850" y="420" fill="black" font-size="12" font-weight="bold" style={{ cursor: 'pointer' }} onClick={() => window.open(stores.lekhdaira.link, '_blank')}>Lekhdaira</text>
+
+            <image href={locationIcon} x="790" y="410" style={{ cursor: 'pointer' }} onClick={() => window.open(stores.zubara.link, '_blank')}></image>
+
+            <text x="800" y="420" fill="black" font-size="12" font-weight="bold" style={{ cursor: 'pointer' }} onClick={() => window.open(stores.zubara.link, '_blank')}>Zubara</text>
 
         </svg>
 
