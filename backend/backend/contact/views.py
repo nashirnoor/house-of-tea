@@ -11,7 +11,7 @@ def send_review(request):
         f'Name: {request.data["name"]} \n Email: {request.data["email"]}\n Rating: {request.data["rating"]}\n Review: {request.data["review"]}',
         #recipient 
         from_email=request.data["email"],
-        recipient_list=['info@houseoftea.qa'],
+        recipient_list=['ihsanurahman8055@gmail.com'],
             
         )
     return JsonResponse({'message':'response has been sended'})

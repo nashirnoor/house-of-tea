@@ -186,7 +186,7 @@ import patternRight from "../../assets/patterns/color-pattern-right.png";
 import VisionSection from "../vision/VisionSection";
 import { Link } from "react-router-dom";
 import ReviewForm from "../ReviewForm/ReviewForm";
-import Map from "./Map/Map";
+import Map from "../Map/Map";
 
 const clientImage = [
   { img: client1, id: "11", name: 'Thumama' },

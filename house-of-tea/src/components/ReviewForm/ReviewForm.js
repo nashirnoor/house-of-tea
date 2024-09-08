@@ -140,11 +140,7 @@ const ReviewForm = () => {
       rating: nextValue
     });
   };
-
   const handleSubmit = (e) => {
-    if(loading){
-      return;
-    }
     e.preventDefault();
     const { name, email, review, rating } = formData;
 
@@ -152,31 +148,54 @@ const ReviewForm = () => {
       alert(t('fillOutAllFields'));
       return;
     }
-    
+
     // const mailtoLink = `mailto:muhdzahal123@gmail.com?subject=Review from ${encodeURIComponent(name)}&body=Name: ${encodeURIComponent(name)}%0D%0AEmail: ${encodeURIComponent(email)}%0D%0ARating: ${encodeURIComponent(rating)}%0D%0AReview: ${encodeURIComponent(review)}`;
-    // const mailtoLink = `mailto:ingo@houseoftea.qa?subject=Review from ${encodeURIComponent(name)}&body=Name: ${encodeURIComponent(name)}%0D%0AEmail: ${encodeURIComponent(email)}%0D%0ARating: ${encodeURIComponent(rating)}%0D%0AReview: ${encodeURIComponent(review)}`;
-    // window.location.href = mailtoLink;
-    setLoading(true)
-    fetch(baseUrl()+'/contact-us/send',{
-      method:'POST',
-      body: JSON.stringify({...formData}), 
-      headers: { 
-        "Content-type": "application/json; charset=UTF-8"
-    } 
-    }).then(res=>{
-      setFormData({
+    const mailtoLink = `mailto:ingo@houseoftea.qa?subject=Review from ${encodeURIComponent(name)}&body=Name: ${encodeURIComponent(name)}%0D%0AEmail: ${encodeURIComponent(email)}%0D%0ARating: ${encodeURIComponent(rating)}%0D%0AReview: ${encodeURIComponent(review)}`;
+    window.location.href = mailtoLink;
+
+    setFormData({
       name: '',
       email: '',
       review: '',
       rating: 0
     });
-    setLoading(false)
-    }).catch(()=>{
-      setLoading(false)
-    })
+  };
+  // const handleSubmit = (e) => {
+  //   if(loading){
+  //     return;
+  //   }
+  //   e.preventDefault();
+  //   const { name, email, review, rating } = formData;
+
+  //   if (!name || !email || !review) {
+  //     alert(t('fillOutAllFields'));
+  //     return;
+  //   }
+    
+  //   // const mailtoLink = `mailto:muhdzahal123@gmail.com?subject=Review from ${encodeURIComponent(name)}&body=Name: ${encodeURIComponent(name)}%0D%0AEmail: ${encodeURIComponent(email)}%0D%0ARating: ${encodeURIComponent(rating)}%0D%0AReview: ${encodeURIComponent(review)}`;
+  //   // const mailtoLink = `mailto:ingo@houseoftea.qa?subject=Review from ${encodeURIComponent(name)}&body=Name: ${encodeURIComponent(name)}%0D%0AEmail: ${encodeURIComponent(email)}%0D%0ARating: ${encodeURIComponent(rating)}%0D%0AReview: ${encodeURIComponent(review)}`;
+  //   // window.location.href = mailtoLink;
+  //   setLoading(true)
+  //   fetch(baseUrl()+'/contact-us/send',{
+  //     method:'POST',
+  //     body: JSON.stringify({...formData}), 
+  //     headers: { 
+  //       "Content-type": "application/json; charset=UTF-8"
+  //   } 
+  //   }).then(res=>{
+  //     setFormData({
+  //     name: '',
+  //     email: '',
+  //     review: '',
+  //     rating: 0
+  //   });
+  //   setLoading(false)
+  //   }).catch(()=>{
+  //     setLoading(false)
+  //   })
 
     
-  };
+  // };
 
   return (
     <div className="review-form-container" >

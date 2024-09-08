@@ -1,49 +1,49 @@
 import React from 'react'
-import mapPlane from '../../../assets/maps/plane.png'
-import locationIcon from '../../../assets/maps/location-icon.svg'
+import mapPlane from '../../assets/maps/plane.png'
+import locationIcon from '../../assets/maps/location-icon.svg'
 import './Map.css'
 function Map() {
 
     const stores = {
         muaither: {
-            link: `https://maps.google.com/?q=25.294244456018994, 51.40628477528957`,
-            latitude: 25.295269686055743,
-            longitude: 51.407329540958074,
+            link: `https://maps.google.com/?q=25.29572332548531,51.407174985912846`,
+            latitude: 25.29572332548531,
+            longitude: 51.407174985912846,
         },
         thummam: {
-            link: `https://maps.google.com/?q=25.223198511126594,51.550737566976615`,
-            latitude: 25.223198511126594,
-            longitude: 51.550737566976615,
+            link: `https://maps.google.com/?q=25.222438996740422,51.550536562514615`,
+            latitude: 25.222438996740422,
+            longitude: 51.550536562514615,
         },
         wakrah: {
-            link: `https://maps.google.com/?q=25.18768586365982,51.59176834986675`,
-            latitude: 25.18768586365982,
-            longitude: 51.59176834986675,
+            link: `https://maps.google.com/?q=25.200882610390817,51.588306019650865`,
+            latitude: 25.200882610390817,
+            longitude: 51.588306019650865,
         },
         aziziya: {
-            link: `https://maps.google.com/?q=25.242423543157976,51.445581911144295`,
-            latitude:25.242423543157976,
-            longitude: 51.445581911144295,
+            link: `https://maps.google.com/?q=25.245825444089515,51.446762153624036`,
+            latitude:25.245825444089515,
+            longitude: 51.446762153624036,
         },
         markhiya: {
-            link: `https://maps.google.com/?q=25.334634626154354,51.49219992637035`,
-            latitude: 25.334634626154354,
-            longitude: 51.49219992637035,
+            link: `https://maps.google.com/?q=25.338296672621958, 51.491324118099705`,
+            latitude: 25.338296672621958,
+            longitude: 51.491324118099705,
         },
         alkhor: {
-            link: `https://maps.google.com/?q=25.677276691025067, 51.49961055615182`,
-            latitude: 25.677871049539338,
-            longitude: 51.499886543890824
+            link: `https://maps.google.com/?q=25.67683018797721,51.50235561004744`,
+            latitude: 25.67683018797721,
+            longitude: 51.50235561004744
         },
         lekhdaira: {
-            link: `https://maps.google.com/?q=25.848044483965282, 51.35018905664213`,
-            latitude: 25.8485658540304,
-            longitude: 51.35033394395309,
+            link: `https://maps.google.com/?q=25.84792563866012,51.350088871164644`,
+            latitude: 25.84792563866012,
+            longitude: 51.350088871164644,
         },
         zubara: {
-            link: `https://maps.google.com/?q=25.822356695807937, 51.34916372295754`,
-            latitude: 25.82621246701662,
-            longitude: 51.350362474361766,
+            link: `https://maps.google.com/?q=25.825738803487717,51.34830822276559`,
+            latitude: 25.825738803487717,
+            longitude: 51.34830822276559,
         },
 
 
