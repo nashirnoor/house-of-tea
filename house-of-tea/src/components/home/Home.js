@@ -202,11 +202,23 @@ const clientImage = [
 function Home() {
   const { t } = useTranslation();
   const [trans, setTrans] = useState(0)
-  const ref = useRef(null);
-  const isInView = useInView(ref);
+  const aboutParaRef = useRef(null);
+  const aboutHeadingRef=useRef(null)
+  const aboutImageRef=useRef(null)
+  const isaboutParaInView = useInView(aboutParaRef);
+  const isaboutImageInView = useInView(aboutImageRef);
+  const isaboutHeadingInView = useInView(aboutHeadingRef);
 
-  const animationVariants = {
+  const aboutParaAnimation = {
     hidden: { opacity: 0, x: 50 },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.5 } }
+  };
+  const aboutHeadingAnimation = {
+    hidden: { opacity: 0, y: -20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+  };
+  const aboutImageAnimation = {
+    hidden: { opacity: 0, x: -20 },
     visible: { opacity: 1, x: 0, transition: { duration: 0.5 } }
   };
   const settings = {
@@ -262,12 +274,12 @@ function Home() {
             </Carousel> */}
           </div>
         </div>
-
+              
         <Container >
           <Row>
-
+            
             <Col sm={12} md={6} style={{ zIndex: '1' }}>
-              <div className="content-1-img-section">
+              <motion.div className="content-1-img-section" ref={aboutImageRef} variants={aboutImageAnimation} initial="hidden" animate={isaboutImageInView ? "visible" : "hidden"}>
                 <Carousel pause={false}>
                   <Carousel.Item interval={2000}>
                     <div className="carousel-img-wrapper">
@@ -315,16 +327,16 @@ function Home() {
                     </div>
                   </Carousel.Item>
                 </Carousel>
-              </div>
+              </motion.div >
             </Col>
 
             <Col >
               <div className="content-1">
-                <div className="content-1-details">
+              <motion.div className="content-1-details" ref={aboutHeadingRef} variants={aboutHeadingAnimation} initial="hidden" animate={isaboutHeadingInView ? "visible" : "hidden"}>
                   <h1 className="heading">{t("home.about_the_company")}</h1>
-                </div>
+                  </motion.div>
                 
-                <motion.div className="content-1-details" ref={ref} variants={animationVariants} initial="hidden" animate={isInView ? "visible" : "hidden"}>
+                <motion.div className="content-1-details" ref={aboutParaRef} variants={aboutParaAnimation} initial="hidden" animate={isaboutParaInView ? "visible" : "hidden"}>
                   <p className="para" style={{}}>{t("home.company_description")}</p>
                   </motion.div>
                  

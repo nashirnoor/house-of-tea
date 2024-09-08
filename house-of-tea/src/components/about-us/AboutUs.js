@@ -94,10 +94,10 @@
 
 // export default AboutUs;
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import "./AboutUs.css";
-import { motion } from "framer-motion";
+import { motion, transform, useInView } from "framer-motion";
 import contentimg1 from "../../assets/aboutus/W1.jpg";
 import contentimg2 from "../../assets/aboutus/w2.jpg";
 import contentimg3 from "../../assets/aboutus/w3.jpg";
@@ -114,6 +114,26 @@ function AboutUs() {
   const { t } = useTranslation();
 
   const [trans, setTrans] = useState(0)
+  
+  const aboutParaRef = useRef(null);
+  const aboutHeadingRef=useRef(null)
+  const aboutImageRef=useRef(null)
+  const isaboutParaInView = useInView(aboutParaRef);
+  const isaboutImageInView = useInView(aboutImageRef);
+  const isaboutHeadingInView = useInView(aboutHeadingRef);
+  
+  const aboutParaAnimation = {
+    hidden: { opacity: 0, x: 50 },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.5 } }
+  };
+  const aboutHeadingAnimation = {
+    hidden: { opacity: 0, y: -20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+  };
+  const aboutImageAnimation = {
+    hidden: { opacity: 0, transform: 'translateX(50)' },
+    visible: { opacity: 1, transform: 'translateX(0)', transition: { duration: 2 } }
+  };
   useEffect(() => {
     window.addEventListener('scroll', () => {
 
@@ -234,7 +254,7 @@ function AboutUs() {
           <Row>
              
             <Col sm={12} md={6}>
-               <div className="content-1-img-section">
+               <motion.div className="content-1-img-section"  ref={aboutImageRef} variants={aboutImageAnimation} initial="hidden" animate={isaboutImageInView ? "visible" : "hidden"}>
                 
                 <Carousel pause={false}>
                   <Carousel.Item interval={2000}>
@@ -284,17 +304,17 @@ function AboutUs() {
                   </Carousel.Item>
                 </Carousel>
 
-              </div>
+              </motion.div>
             </Col>
 
             <Col>
               <div className="content-1">
-                <div className="content-1-details">
+                <motion.div className="content-1-details"  ref={aboutHeadingRef} variants={aboutHeadingAnimation} initial="hidden" animate={isaboutHeadingInView ? "visible" : "hidden"}>
                   <h1 className="heading">{t("home.about_the_company")}</h1>
-                </div>
-                <div className="content-1-details">
+                </motion.div>
+                <motion.div className="content-1-details" ref={aboutParaRef} variants={aboutParaAnimation} initial="hidden" animate={isaboutParaInView ? "visible" : "hidden"}>
                   <p className="paras">{t("about.company_description")}</p>
-                </div>
+                </motion.div>
                 
               </div><div className="pattern-right" style={{
                 marginLeft: 'auto',

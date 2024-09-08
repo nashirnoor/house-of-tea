@@ -931,84 +931,84 @@ const Menu = () => {
 
   const [sortValue, setSort] = useState('default');
   useEffect(() => {
+      if (!loading && sortValue === 'price-low') {
+        productData[selectedCategory].sort((a, b) => {
+          if (!a.price) {
 
-    if (!loading && sortValue === 'price-low') {
-      productData[selectedCategory].sort((a, b) => {
-        if (!a.price) {
-
-          if (!b.price) {
-            console.log('min', Math.min(...a.sizes.map(el => el.price)), Math.min(...b.sizes.map(el => el.price)))
-            return Math.min(...a.sizes.map(el => el.price)) - Math.min(...b.sizes.map(el => el.price))
+            if (!b.price) {
+              console.log('min', Math.min(...a.sizes.map(el => el.price)), Math.min(...b.sizes.map(el => el.price)))
+              return Math.min(...a.sizes.map(el => el.price)) - Math.min(...b.sizes.map(el => el.price))
+            }
+            console.log(Math.min(...a.sizes.map(el => el.price)) - b.price)
+            return Math.min(...a.sizes.map(el => el.price)) - b.price
           }
-          console.log(Math.min(...a.sizes.map(el => el.price)) - b.price)
-          return Math.min(...a.sizes.map(el => el.price)) - b.price
-        }
-        console.log(a, b)
-        if (b.sizes) {
-          return a.price - Math.min(...b.sizes.map(el => el.price))
-        }
-        return a.price - b.price
-      })
-    }
-    else if (!loading && sortValue === 'price-high') {
-      productData[selectedCategory].sort((a, b) => {
-        if (!a.price) {
-
-          if (!b.price) {
-            return Math.max(...b.sizes.map(el => el.price)) - Math.max(...a.sizes.map(el => el.price))
+          console.log(a, b)
+          if (b.sizes) {
+            return a.price - Math.min(...b.sizes.map(el => el.price))
           }
-          console.log(Math.max(...a.sizes.map(el => el.price)) - b.price)
-          return b.price - Math.max(...a.sizes.map(el => el.price))
-        }
-        console.log(a, b)
-        if (b.sizes) {
-          return Math.max(...b.sizes.map(el => el.price)) - a.price
-        }
-        return b.price - a.price
-      })
-    } else if (!loading) {
-
-      productData[selectedCategory].sort((a, b) => {
-        if (a.name < b.name) { return -1; }
-        if (a.name > b.name) { return 1; }
-        return 0;
-      })
-
-    }
-    setProductData({ ...productData })
-  }, [sortValue])
-  useEffect(() => {
-    setLoading(true)
-    let data = {}
-    console.log(baseUrl(), i18n.language)
-    fetch(baseUrl() + '/products/menu', { headers: { 'Accept-Language': i18n.language } }).then(function (a) {
-      return a.json();
-    }).then((res) => {
-      //setTimeout(() => {
-      console.log(res.data)
-
-      res.data.map(e => {
-        e.products.map((product, idx) => {
-          e.products[idx].image = baseUrl() + e.products[idx].image
-
+          return a.price - b.price
         })
+      }
+      else if (!loading && sortValue === 'price-high') {
+        productData[selectedCategory].sort((a, b) => {
+          if (!a.price) {
 
-        data[e.name] = [...e.products.sort((a, b) => {
+            if (!b.price) {
+              return Math.max(...b.sizes.map(el => el.price)) - Math.max(...a.sizes.map(el => el.price))
+            }
+            console.log(Math.max(...a.sizes.map(el => el.price)) - b.price)
+            return b.price - Math.max(...a.sizes.map(el => el.price))
+          }
+          console.log(a, b)
+          if (b.sizes) {
+            return Math.max(...b.sizes.map(el => el.price)) - a.price
+          }
+          return b.price - a.price
+        })
+      } else if (!loading) {
+
+        productData[selectedCategory].sort((a, b) => {
           if (a.name < b.name) { return -1; }
           if (a.name > b.name) { return 1; }
           return 0;
-        })]
+        })
+
+      }
+      setProductData({ ...productData })
+  }, [sortValue])
+
+  useEffect(() => {
+      setLoading(true)
+      let data = {}
+      console.log(baseUrl(), i18n.language)
+      fetch(baseUrl() + '/products/menu', { headers: { 'Accept-Language': i18n.language } }).then(function (a) {
+        return a.json();
+      }).then((res) => {
+        //setTimeout(() => {
+        console.log(res.data)
+
+        res.data.map(e => {
+          e.products.map((product, idx) => {
+            e.products[idx].image = baseUrl() + e.products[idx].image
+
+          })
+
+          data[e.name] = [...e.products.sort((a, b) => {
+            if (a.name < b.name) { return -1; }
+            if (a.name > b.name) { return 1; }
+            return 0;
+          })]
+        })
+        setSort('default')
+        setProductData({ ...data })
+        setSelectedCategory(Object.keys(data)[0])
+        setLoading(false)
+
+        //}, 6000)
+
       })
-      setSort('default')
-      setProductData({ ...data })
-      setSelectedCategory(Object.keys(data)[0])
-      setLoading(false)
-
-      //}, 6000)
-
-    })
   }, [i18n.language])
-  const navigate = useNavigate();
+  
   const { addToCart } = useContext(CartContext);
 
   const isMobileView = () => window.innerWidth <= 768;
