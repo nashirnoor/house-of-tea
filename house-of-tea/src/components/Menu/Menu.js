@@ -980,7 +980,6 @@ const Menu = () => {
   useEffect(() => {
       setLoading(true)
       let data = {}
-      console.log(baseUrl(), i18n.language)
       fetch(baseUrl() + '/products/menu', { headers: { 'Accept-Language': i18n.language } }).then(function (a) {
         return a.json();
       }).then((res) => {
