@@ -87,7 +87,8 @@
 }
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  
   gap: 20px;
 }
 
@@ -170,6 +171,7 @@
 .sort-section{
   margin-left: 5px;
   display: flex;
+  outline: #fff;
   margin-bottom: 15px;
 }
 .sort-section p{
@@ -182,6 +184,7 @@
   width: 150px;
   margin-top: 0
 }
+
 .add-to-cart-btn {
   background-color: #16a085;
   color: #fff;

@@ -126,7 +126,7 @@ function ContactUs() {
               <div className="overlay8"></div>
               <div className="title8">
                 <div className="contact-us-heading">
-                  {t('contactUs.heading')}
+                  
                 </div>
               </div>
             </div>
