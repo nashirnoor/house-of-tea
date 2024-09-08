@@ -95,7 +95,7 @@
 .product-card {
   background: #000000;
   border: 1px solid #ddd;
-  width:350px;
+  max-width:350px;
   border-radius: 8px;
   text-align: center;
   overflow: hidden;

@@ -1114,7 +1114,7 @@ const Menu = () => {
       <div className={`content ${!sidebarVisible ? "expanded" : ""}`}>
         <h2 className="category-title">{loading && !sidebarVisible ? 'loading..' : selectedCategory}</h2>
         <div className="sort-section">
-          <p>select sort:</p>
+          <p>Select price variant:</p>
           <select className="sort-selection select" name="" id="" onChange={onSortChange} value={sortValue}>
             <option value="default" >select option</option>
             <option value="price-low">low price</option>
