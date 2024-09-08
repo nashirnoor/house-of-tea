@@ -59,7 +59,9 @@
 }
 
 .cart-item-details {
-  
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
   display: flex;
   flex-direction: column;
 }
@@ -233,12 +235,14 @@
     width: 80px;
     height: 80px;
   }
-  .cart-item {
+  .cart-item-details {
     display: flex;
     justify-content: space-between;
     gap: 1rem;
+    display: flex;
+    flex-direction: column;
   }
-
+  
   .quantity-control {
     align-items: center;
   }
