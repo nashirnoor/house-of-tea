@@ -1136,10 +1136,10 @@ const Menu = () => {
                     className="product-image"
                     loading="lazy"
                   />
-                  <h3 className="product-name">{t(`${product.name}`)}</h3>
-                  {/* <p className="product-description">
-                {t(`Products.${product.description}`)}
-              </p> */}
+                  <h3 className="product-name" style={{ color: 'black' }}>{t(`${product.name}`)}</h3>
+                  <p className="product-description" style={{ color: 'black' }}> 
+                {t(`${product.description}`)}
+              </p>
 
                   {!product.price ? (
                     <div className="size-options">
@@ -1159,7 +1159,7 @@ const Menu = () => {
                       ))}
                     </div>
                   ) : (
-                    <p className="product-price">
+                    <p className="product-price" >
                       Price: {product.price.toFixed(2)} QR
                     </p>
                   )}

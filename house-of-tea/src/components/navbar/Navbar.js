@@ -480,7 +480,7 @@ function Navbar() {
             </div>
             <div className={bgnav ? "yes-logo" : "no-logo"}>
               <img
-                style={{ width: "90px" }}
+                style={{ width: "125px", height: "125px" }}
                 src={homeLogo}
                 alt="House Of Tea"
               />

@@ -105,7 +105,7 @@ function Footer() {
     <div className="footer" style={{backgroundColor:"black"}}>
       
       <div className="logofooter">
-        <img src={logoWhite} alt="" style={{height:'120px'}} />
+        <img src={logoWhite} alt="" style={{height:'170px', width:'170px'}} />
       </div>
       {/* <div className="menufooter">
         <div>
@@ -149,6 +149,8 @@ function Footer() {
           {t("footer.address_detail")}
         </div> */}
         <div className="footerHeading">{t("footer.phone")}</div>
+        <div className="footerHeading"><Link to="/store-contact">Store Contact</Link></div>
+
         <div className="footerDetail">
           <IoCallSharp /> +974 70377366
         </div>

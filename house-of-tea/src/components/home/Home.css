@@ -425,7 +425,7 @@
 .pattern-about {
   margin-left: auto !important;
   
-  width: 500px;
+  width: 766px;
   height: 550px;
   background-repeat: no-repeat;
   background-position-x: 90px;
@@ -436,13 +436,13 @@
   position: absolute;
   background-size: cover;
   
-  left: 0px;
+  /* left: 0px; */
   right: 0px;
 }
 .pattern-footer {
   margin-left: auto !important;
   
-  width: 500px;
+  width: 750px;
   height: 550px;
   background-repeat: no-repeat;
   background-position-x: 90px;

@@ -2,8 +2,8 @@
   background-color: #000 !important;
   display: flex;
   padding: 5rem 8rem;
-  margin-top: 5rem;
-  margin-bottom: 0rem;
+  margin-top: -3rem;
+  /* margin-bottom: 0rem; */
   gap: 30px;
   justify-content: space-between;
   overflow: hidden;
@@ -95,6 +95,7 @@
   .footer {
     padding: 50px;
     gap: 2rem;
+
   }
   .logofooter img {
     width: 150px;

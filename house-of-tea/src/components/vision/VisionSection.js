@@ -66,6 +66,9 @@ import contentLogo2 from "../../assets/content-logo/Frame 5 1 white fill.png";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import patternLeft from "../../assets/patterns/color-pattern-left.svg";
+import patternLeftright from "../../assets/patterns/patternleftright.png";
+
+
 import "./VisionSection.css";
 
 function VisionSection() {
@@ -140,8 +143,10 @@ function VisionSection() {
             </div>
           </div>
         )}
-      </div><div className="pattern-vision" style={{
-                backgroundImage: `url("${patternLeft}")`,
+      </div>
+      
+      <div className="pattern-vision" style={{
+                backgroundImage: `url("${patternLeftright}")`,
                 transform: `translateY(-${trans}px)`,
                 opacity:'0.5',
                 backgroundBlendMode:'multiply',

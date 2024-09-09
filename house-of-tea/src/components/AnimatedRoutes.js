@@ -63,6 +63,7 @@ import OurBrands from "./OurBrands/OurBrands";
 import ProductList from "./ProductList/ProductList";
 import Menu from "./Menu/Menu";
 import Cart from "./cart/Cart";
+import StoreContact from "./storecontact/StoreContact";
 
 function AnimatedRoutes() {
   const { pathname } = useLocation();
@@ -89,6 +90,7 @@ function AnimatedRoutes() {
         <Route path="/products/:category" element={<ProductList />} />
         <Route path="/our-brands" element={<OurBrands />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/store-contact" element={<StoreContact />} />
       </Routes>
     </AnimatePresence>
   );

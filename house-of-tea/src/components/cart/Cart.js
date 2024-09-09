@@ -40,48 +40,63 @@ const Cart = () => {
       latitude: 25.222438996740422,
       longitude: 51.550536562514615,
       whatsappNumber: "+97431235757",
+      excatlocation: 'https://maps.app.goo.gl/fY8mVQLQVvZSEQZd6'
+
     },
     {
       name: "Muaithar ",
       latitude: 25.29572332548531,
       longitude: 51.407174985912846,
       whatsappNumber: "+97431462211",
+      excatlocation: 'https://maps.app.goo.gl/aYLLpURPxWdHCBFo7'
+
     },
     {
       name: "Wakrah ",
       latitude: 25.200882610390817,
       longitude: 51.588306019650865,
       whatsappNumber: "+97431366767",
+      excatlocation: 'https://maps.app.goo.gl/RWYTi1NL8YXpPCdR8'
+
     },
     {
       name: " Aziziya",
       latitude: 25.245825444089515,
       longitude: 51.446762153624036,
       whatsappNumber: "+97474410010",
+      excatlocation: 'https://maps.app.goo.gl/JrnJiooZyX7Ma97e6'
+
     },
     {
       name: "Markhiya ",
       latitude: 25.338296672621958,
       longitude: 51.491324118099705,
       whatsappNumber: "+97477298787",
+      excatlocation: 'https://maps.app.goo.gl/JrnJiooZyX7Ma97e6'
+
     },
     {
       name: "Al Khor ",
       latitude: 25.67683018797721,
       longitude: 51.50235561004744,
       whatsappNumber: "+97470377366",
+      excatlocation: 'https://maps.app.goo.gl/PN39LYAi6SFD2y2b8'
+
     },
     {
       name: "Lekhdaira ",
       latitude: 25.84792563866012,
       longitude: 51.350088871164644,
       whatsappNumber: "+97477289797",
+      excatlocation: 'https://maps.app.goo.gl/v16cvoBmfgrPbG5U7'
+
     },
     {
       name: "Zubara ",
       latitude: 25.825738803487717,
       longitude: 51.34830822276559,
       whatsappNumber: "+97470602132",
+      excatlocation: 'https://maps.app.goo.gl/oXvhCa1FVh9M5mGq7'
     },
   ];
 
@@ -152,7 +167,7 @@ const Cart = () => {
     const grandTotal = totalPrice + deliveryFee;
 
     const storeLocationInfo = selectedStore
-      ? `Store Location: ${selectedStore.name}\n\nLocation Link: https://maps.google.com/?q=${selectedStore.latitude},${selectedStore.longitude}`
+      ? `Store Location: ${selectedStore.name}\n\nLocation Link: ${selectedStore.excatlocation}`
       : "";
 
     // const whatsappNumber = "+97431608138";
@@ -175,10 +190,12 @@ const Cart = () => {
     );
 
     const locationMessage = location
-      ? `\n\n\n Customer Location: https://maps.google.com/?q=${location.latitude},${location.longitude}`
-      : "";
+  ? `\n\n\n Customer Location: ${selectedStore.excatlocation}`
+  : "";
+
 
     const sendMessage = (locationMessage) => {
+      console.log(storeLocationInfo,"llllllllllllllllllllll")
       const whatsappUrl = `${baseUrl}${whatsappNumber}?text=${encodedMessage}${storeLocationInfo}${locationMessage}`;
       window.open(whatsappUrl, "_blank");
     };
@@ -199,7 +216,7 @@ const Cart = () => {
             );
             setDistance(calculatedDistance);
           }
-          const locationMessage = `\n\n\n Customer Location: https://maps.google.com/?q=${latitude},${longitude}`;
+          const locationMessage = `\n\n\n Customer Location: ${selectedStore.excatlocation}`;
           sendMessage(locationMessage);
         },
         (error) => {

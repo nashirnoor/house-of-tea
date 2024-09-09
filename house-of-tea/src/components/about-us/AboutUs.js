@@ -239,13 +239,13 @@ function AboutUs() {
             <div className="oil-banner7">
               <div className="overlay7">
                 <div className="oil-title7">
-                  <div className="about-us-heading">
+                  {/* <div className="about-us-heading">
                     {t("about.first_heading")}{" "}
                     <span className="highlighted-text">
                       {" "}
                       {t("about.second_heading")}{" "}
                     </span>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>

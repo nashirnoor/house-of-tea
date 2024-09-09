@@ -182,6 +182,9 @@ import client5 from "../../assets/client-logo/image 24.png";
 import client6 from "../../assets/client-logo/image 25.png";
 import client7 from "../../assets/client-logo/image 26.png";
 import patternRight from "../../assets/patterns/color-pattern-right.png";
+import patternleftright from "../../assets/patterns/patternleftright.png";
+
+
 
 import VisionSection from "../vision/VisionSection";
 import { Link } from "react-router-dom";
@@ -350,7 +353,7 @@ function Home() {
               </div>
               <div className="pattern-about" style={{
                 marginLeft: 'auto',
-                backgroundImage: `url("${patternRight}")`,
+                backgroundImage: `url("${patternleftright}")`,
                 transform: `translateY(-${trans}px)`,
 
               }}>
@@ -378,7 +381,7 @@ function Home() {
       </div>
       <div className="pattern-footer" style={{
         marginLeft: 'auto',
-        backgroundImage: `url("${patternRight}")`,
+        backgroundImage: `url("${patternleftright}")`,
         transform: `translateY(-${trans}px)`,
 
       }}></div>

@@ -195,23 +195,41 @@
   width: 100%; /* Make it responsive */
 }
 .pattern-vision {
- 
-  
-  width: 500px;
+  width: 900px;
   height: 550px;
   background-repeat: no-repeat;
   background-position-x: -90px;
   background-blend-mode: multiply;
   /* background-position-y:-80px ; */
   position: absolute;
-  background-size: cover;
+  background-size: contain;
   margin-top: 1700px;
-  left: 0px;
+  /* transform: translateY(-3253.82px); */
   right: 0px;
+  
 }
+
+
+/* .pattern-vision {
+ 
+  width: 500px;
+  height: 550px;
+  background-repeat: no-repeat;
+  background-position-x: -90px;
+  background-blend-mode: multiply;
+  /* background-position-y:-80px ; */
+  /* position: absolute; */
+  /* background-size: contain; */
+  /* margin-top: 1700px; */
+  /* transform: translateY(-3253.82px); */
+  /* right: 0px; */
+  /* right: 0px; */
+  
+
 @media (max-width: 768px) {
   .pattern-vision{
     margin-top:2500px
+    
   }
   .heading-text {
     font-size: 20px;
